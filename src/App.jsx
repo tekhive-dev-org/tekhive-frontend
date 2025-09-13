@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar/Navbar'
 import HeroSection from './Components/HeroSection/HeroSection'
 import HeroSectionTwo from './Components/HeroSectionTwo/HeroSectionTwo'
 import ServicesSection from './Components/ServicesSection/ServicesSection'
+import WhyChooseUs from './Components/WhyChooseUs/WhyChooseUs'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <HeroSection />
       <HeroSectionTwo />
       <ServicesSection />
+      <WhyChooseUs />
       {/* ...other components... */}
     </div>
   )
