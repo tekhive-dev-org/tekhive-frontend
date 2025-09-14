@@ -5,6 +5,8 @@ import customerserviceicon1 from "../../assets/Images/icons/customerserviceicon1
 import securepaymentlineicon2 from "../../assets/Images/icons/securepaymentlineicon2.svg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from '../Button/button';
+import humanicon from "../../assets/Images/icons/humanicon.svg";
+import doubleQuote from "../../assets/Images/icons/doubleQuote.svg";
 
 const features = [
     {
@@ -30,28 +32,28 @@ const testimonials = [
             "I recently hired TechWise for a project, and I couldn't be happier with the results. The work exceeded my expectations in every way. Communication was smooth, deadlines were met, and the quality was outstanding.",
         author: "Chidi British",
         position: "CEO at Cube Ltd",
-        avatar: "/professional-man-headshot.png",
+        avatar: humanicon,
     },
     {
         quote:
             "Working with TechWise has been a game-changer for our business. Their innovative solutions and dedicated support team helped us streamline our operations and increase productivity by 40%.",
         author: "Sarah Johnson",
         position: "CTO at InnovateTech",
-        avatar: "/professional-woman-headshot.png",
+        avatar: humanicon
     },
     {
         quote:
             "The level of expertise and professionalism shown by TechWise is unmatched. They delivered our complex project on time and within budget, exceeding all our requirements.",
         author: "Michael Chen",
         position: "Founder at StartupHub",
-        avatar: "/professional-asian-man-headshot.png",
+        avatar: humanicon,
     },
     {
         quote:
             "TechWise transformed our digital presence completely. Their strategic approach and cutting-edge technology solutions helped us reach new markets and double our revenue.",
         author: "Emily Rodriguez",
         position: "Marketing Director at GrowthCorp",
-        avatar: "/professional-latina-woman-headshot.png",
+        avatar: humanicon,
     },
 ];
 
@@ -94,11 +96,11 @@ function WhyChooseUsSection() {
                 <div className="space-y-6">
                     {features.map((f, idx) => (
                         <div key={idx} className="flex items-start space-x-4">
-                            <div className="border-0 bg-[#CDD0D5] p-3 rounded-2xl">
+                            <div className="border-0 bg-[#CDD0D5] p-2 rounded-full overflow-hidden flex-shrink-0">
                                 <img
-                                    src={f.icon}
+                                    src={f.icon }
                                     alt={f.title}
-                                    className="h-4 sm:h-6 lg:h-8 w-30 sm:w-20 lg:w-18 "
+                                    className="w-full h-10 object-contain "
                                 />
                             </div>
                             <div>
@@ -112,8 +114,8 @@ function WhyChooseUsSection() {
 
             {/* Testimonials */}
             <div className="bg-[#F5F7FA]  rounded-2xl p-8 lg:p-12 shadow-lg mt-12">
-                <div className='flex sm:flex-row flex-col justify-between items-center mb-8 '>
-                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center lg:text-left">
+                <div className='flex sm:flex-row flex-col justify-between items-center mb-8 gap-6'>
+                    <h3 className="text-2xl lg:text-5xl font-bold text-gray-900 mb-8 text-center lg:text-left">
                         What Our Customers Say
                     </h3>
 
@@ -122,9 +124,10 @@ function WhyChooseUsSection() {
                         <div className="flex-1">
                             <div className="mb-6 transition-all duration-500 ease-in-out">
                                 <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                                    <span className="text-gray-400 text-xl">"</span>
+                                    <img src={doubleQuote} alt="doubleQuote" className='w-4 h-4' />
+                                    {/* <span className="text-gray-400 text-xl">"</span> */}
                                 </div>
-                                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                                <p className="text-gray-700 text-base leading-relaxed mb-6">
                                     {testimonials[currentTestimonial].quote}
                                 </p>
                             </div>

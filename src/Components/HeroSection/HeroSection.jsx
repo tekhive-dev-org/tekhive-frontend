@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background to-muted pt-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br  pt-16"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
        
@@ -16,7 +16,7 @@ const HeroSection = () => {
           {/* Left Column - Text Content */}
           <div className=" cursor-pointer space-y-6 text-center lg:text-left">
             <Button className="w-90% mt-2.5 border-r-2 rounded-2xl text-1xl  border-1 text-[#0066FF] border-[#0066FF]">Welcome to techhive Hub</Button>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-5xl font-bold text-balance text-[#1C1C1C] text-foreground">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-5xl font-bold text-balance text-[#1C1C1C] ">
               Build Future-proof Products in  <span className="text-primary">Tekhive</span> With Technology
             </h1>
             <p className="text-sm sm:text-sm lg:text-sm text-[#525866] text-muted-foreground text-pretty max-w-2xl mx-auto lg:mx-0">

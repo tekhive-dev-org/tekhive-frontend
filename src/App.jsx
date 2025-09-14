@@ -4,6 +4,7 @@ import HeroSection from './Components/HeroSection/HeroSection'
 import HeroSectionTwo from './Components/HeroSectionTwo/HeroSectionTwo'
 import ServicesSection from './Components/ServicesSection/ServicesSection'
 import WhyChooseUs from './Components/WhyChooseUs/WhyChooseUs'
+import  SolutionSection  from './Components/SolutionSection/SolutionSection'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <HeroSectionTwo />
       <ServicesSection />
       <WhyChooseUs />
+      <SolutionSection />
       {/* ...other components... */}
     </div>
   )
