@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import image1WhyChooseUs from "../../assets/Images/image1WhyChooseUs.svg";
-import image2WhyChooseUs from "../../assets/Images/image2WhyChooseUs.svg";
-import customerserviceicon1 from "../../assets/Images/icons/customerserviceicon1.svg";
-import securepaymentlineicon2 from "../../assets/Images/icons/securepaymentlineicon2.svg";
+import image1WhyChooseUs from "../../../assets/Images/image1WhyChooseUs.svg";
+import image2WhyChooseUs from "../../../assets/Images/image2WhyChooseUs.svg";
+import customerserviceicon1 from "../../../assets/Images/icons/customerserviceicon1.svg";
+import securepaymentlineicon2 from "../../../assets/Images/icons/securepaymentlineicon2.svg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from '../Button/button';
-import humanicon from "../../assets/Images/icons/humanicon.svg";
-import doubleQuote from "../../assets/Images/icons/doubleQuote.svg";
+import { Button } from '../../../Components/Button/button';
+import humanicon from "../../../assets/Images/icons/humanicon.svg";
+import doubleQuote from "../../../assets/Images/icons/doubleQuote.svg";
 
 const features = [
     {

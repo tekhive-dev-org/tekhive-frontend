@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../Button/button'
-import heroIcon from '../../assets/Images/heroIcon.svg'
+import { Button } from '../../../Components/Button/button'
+import heroIcon from '../../../assets/Images/heroIcon.svg'
 
 
 const HeroSection = () => {
