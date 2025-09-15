@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "../Button/button.jsx";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // ✅ import your icons
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,23 +16,23 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="text-2xl font-bold text-[#0066FF]">TekHive</Link>
           </div>
-
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-             
-              <Link to="/home" className="text-[#525866] hover:text-[#0066FF] transition-colors duration-200">
+              {/* Match App's route: /Home (capital H) */}
+              <Link to="/Home" className="text-[#525866] hover:text-[#0066FF] transition-colors duration-200">
                 Home
               </Link>
-              <Link to="/services" className="text-[#525866] hover:text-[#0066FF] transition-colors duration-200">
+              {/* Match App's route: /AboutUs (capital A/U) */}
+              <Link to="/AboutUs" className="text-[#525866] hover:text-[#0066FF] transition-colors duration-200">
                 About
               </Link>
-              <Link to="/blog" className="text-[#525866] hover:text-[#0066FF] transition-colors duration-200">
+              {/* Add a route for /Blog in App first! */}
+              <Link to="/Blog" className="text-[#525866] hover:text-[#0066FF] transition-colors duration-200">
                 Blog
               </Link>
             </div>
           </div>
-
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Button
@@ -43,7 +43,6 @@ const Navbar = () => {
               Get Started
             </Button>
           </div>
-
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
@@ -54,27 +53,26 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-300">
               <Link
-                to="/home"
+                to="/Home"
                 className="block px-3 py-2 text-[#525866] hover:text-[#0066FF] transition-colors duration-200"
                 onClick={toggleMenu}
               >
                 Home
               </Link>
               <Link
-                to="/services"
+                to="/AboutUs"
                 className="block px-3 py-2 text-[#525866] hover:text-[#0066FF] transition-colors duration-200"
                 onClick={toggleMenu}
               >
                 About
               </Link>
               <Link
-                to="/blog"
+                to="/Blog"
                 className="block px-3 py-2 text-[#525866] hover:text-[#0066FF] transition-colors duration-200"
                 onClick={toggleMenu}
               >

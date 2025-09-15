@@ -31,11 +31,11 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mb-12">
-          <h1 className="text-white text-4xl sm:text-5xl lg:text-5xl font-bold mb-6">
+          <h1 className="text-white text-4xl sm:text-4xl lg:text-4xl  font-semibold mb-6">
             <span className="text-[#06202C]">Discover </span>
             Some Of Our Outstanding <br /> <span>Workmanship & Services.</span>
           </h1>
-          <p className="text-white text-sm sm:text-base lg:text-sm max-w-2xl text-pretty">
+          <p className="text-white text-sm sm:text-base font-normal lg:text-base max-w-2xl text-pretty">
             Techhive is a dynamic startup designed to equip industries, clients and individuals with in-depth and industry-based products, leveraging technology and innovationskills. Techhive offers the following below:
           </p>
         </div>
@@ -45,23 +45,23 @@ const ServicesSection = () => {
                     <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
                     <Asterisk color='#669C54' className='mr-2' />
                         <div className=" bg-accent rounded-full flex-shrink-0" />
-                        <span className="text-white text-sm font-medium">Technical Assistance in Product Build</span>
+                        <span className="text-white text-base font-medium">Technical Assistance in Product Build</span>
                     </div>
 
                     <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
                      <Asterisk color='#669C54' className='mr-2' />
                         <div className=" bg-accent rounded-full flex-shrink-0" />
-                        <span className="text-white text-sm font-medium">Product Visibilty & Management</span>
+                        <span className="text-white text-base font-medium">Product Visibilty & Management</span>
                     </div>
 
                     <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
                         <Asterisk color='#669C54' className='mr-2' />
                         <div className=" bg-accent rounded-full flex-shrink-0" />
-                        <span className="text-white text-sm font-medium">Community & Networking.</span>
+                        <span className="text-white text-base font-medium">Community & Networking.</span>
                     </div>
                 </div>
 
-        <Button className="mt-4 border border-white text-white text-sm mb-5">
+        <Button className="mt-4 border border-white text-white text-base mb-5">
           For Talent
         </Button>
 
@@ -76,15 +76,15 @@ const ServicesSection = () => {
                 <img
                   src={feature.image}
                   alt={feature.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48  object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {feature.stats}
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-gray-700">{feature.description}</p>
+                <h3 className="text-lg font-medium mb-3 text-[#0A0D14]">{feature.title}</h3>
+                <p className="text-gray-700 text-base">{feature.description}</p>
               </div>
             </div>
           ))}

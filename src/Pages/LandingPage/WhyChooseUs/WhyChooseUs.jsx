@@ -29,14 +29,14 @@ const features = [
 const testimonials = [
     {
         quote:
-            "I recently hired TechWise for a project, and I couldn't be happier with the results. The work exceeded my expectations in every way. Communication was smooth, deadlines were met, and the quality was outstanding.",
+            "I recently hired Tech-Hive for a project, and I couldn't be happier with the results. The work exceeded my expectations in every way. Communication was smooth, deadlines were met, and the quality was outstanding.",
         author: "Chidi British",
         position: "CEO at Cube Ltd",
         avatar: humanicon,
     },
     {
         quote:
-            "Working with TechWise has been a game-changer for our business. Their innovative solutions and dedicated support team helped us streamline our operations and increase productivity by 40%.",
+            "Working with Tech-Hive has been a game-changer for our business. Their innovative solutions and dedicated support team helped us streamline our operations and increase productivity by 40%.",
         author: "Sarah Johnson",
         position: "CTO at InnovateTech",
         avatar: humanicon
@@ -50,7 +50,7 @@ const testimonials = [
     },
     {
         quote:
-            "TechWise transformed our digital presence completely. Their strategic approach and cutting-edge technology solutions helped us reach new markets and double our revenue.",
+            "Tech-Hive transformed our digital presence completely. Their strategic approach and cutting-edge technology solutions helped us reach new markets and double our revenue.",
         author: "Emily Rodriguez",
         position: "Marketing Director at GrowthCorp",
         avatar: humanicon,
@@ -72,8 +72,8 @@ function WhyChooseUsSection() {
         <section id="why" className="py-5 px-6 bg-white">
             {/* Heading */}
             <div className="py-16 px-6 text-center">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Why Choose Us!</h2>
-                <p className="max-w-2xl mx-auto text-sm text-[#525866] mb-3">
+                <h2 className=" text-4xl sm:text-3xl lg:text-4xl xl:text-4xl font-medium  mb-6">Why Choose Us!</h2>
+                <p className="max-w-2xl font-normal mx-auto text-base text-[#525866] mb-3">
                     Choose us for unmatched quality, exceptional service and a commitment to <br />
                     <span>exceeding your expectations</span>
                 </p>
@@ -95,17 +95,28 @@ function WhyChooseUsSection() {
                 {/* Right features */}
                 <div className="space-y-6">
                     {features.map((f, idx) => (
-                        <div key={idx} className="flex items-start space-x-4">
-                            <div className="border-0 bg-[#CDD0D5] p-2 rounded-full overflow-hidden flex-shrink-0">
+                        <div
+                            key={idx}
+                            className="flex items-start space-x-4 p-4 rounded-lg border border-transparent 
+                 transition-all duration-300 transform hover:-translate-x-5 
+                 hover:border-[#0066FF] cursor-pointer group"
+                        >
+                            {/* Icon */}
+                            <div
+                                className="border-0 bg-[#CDD0D5] p-2 rounded-full overflow-hidden flex-shrink-0 
+                   transition-colors duration-300 group-hover:bg-[#0066FF]"
+                            >
                                 <img
-                                    src={f.icon }
+                                    src={f.icon}
                                     alt={f.title}
-                                    className="w-full h-10 object-contain "
+                                    className="w-full h-10 object-contain"
                                 />
                             </div>
+
+                            {/* Text */}
                             <div>
                                 <h3 className="text-lg font-semibold text-[#0A0D14]">{f.title}</h3>
-                                <p className="text-sm text-[#525866]">{f.desc}</p>
+                                <p className="text-base text-[#525866]">{f.desc}</p>
                             </div>
                         </div>
                     ))}
@@ -115,7 +126,7 @@ function WhyChooseUsSection() {
             {/* Testimonials */}
             <div className="bg-[#F5F7FA]  rounded-2xl p-8 lg:p-12 shadow-lg mt-12">
                 <div className='flex sm:flex-row flex-col justify-between items-center mb-8 gap-6'>
-                    <h3 className="text-2xl lg:text-5xl font-bold text-gray-900 mb-8 text-center lg:text-left">
+                    <h3 className="text-4xl sm:text-3xl lg:text-4xl xl:text-4xl font-medium text-gray-900 mb-8 text-center lg:text-left">
                         What Our Customers Say
                     </h3>
 
@@ -127,7 +138,7 @@ function WhyChooseUsSection() {
                                     <img src={doubleQuote} alt="doubleQuote" className='w-4 h-4' />
                                     {/* <span className="text-gray-400 text-xl">"</span> */}
                                 </div>
-                                <p className="text-gray-700 text-base leading-relaxed mb-6">
+                                <p className="font-normal text-[15px] leading-[32px] tracking-normal  text-gray-700 text-base  mb-6">
                                     {testimonials[currentTestimonial].quote}
                                 </p>
                             </div>
@@ -140,7 +151,7 @@ function WhyChooseUsSection() {
                                     className="w-12 h-12 rounded-full object-cover"
                                 />
                                 <div>
-                                    <h4 className="font-bold text-gray-900">{testimonials[currentTestimonial].author}</h4>
+                                    <h4 className="font-semibold  text-gray-900">{testimonials[currentTestimonial].author}</h4>
                                     <p className="text-gray-600 text-sm">{testimonials[currentTestimonial].position}</p>
                                 </div>
                             </div>

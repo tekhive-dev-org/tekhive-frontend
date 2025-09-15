@@ -4,6 +4,7 @@ import HeroSectionTwo from './HeroSectionTwo/HeroSectionTwo'
 import ServicesSection from './ServicesSection/ServicesSection'
 import WhyChooseUs from './WhyChooseUs/WhyChooseUs'
 import SolutionSection from './SolutionSection/SolutionSection'
+import PartnersSection from './PartnersSection/PartnersSection'
 
 const LandingPage = () => {
     return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
             <ServicesSection />
             <WhyChooseUs />
             <SolutionSection />
+            <PartnersSection />
         </div>
     )
 }

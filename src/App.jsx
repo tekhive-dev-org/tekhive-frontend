@@ -1,44 +1,31 @@
-import React from 'react'
-import Navbar from './Components/Navbar/Navbar'
-// import Footer from './Components/Footer/Footer'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import LandingPage from './Pages/LandingPage'
-import AboutUs from './Pages/AboutUs'
-import ContactUs from './Pages/ContactUs'
-import { Home } from 'lucide-react'
-
-// import HeroSection from './Components/HeroSection/HeroSection'
-// import HeroSectionTwo from './Components/HeroSectionTwo/HeroSectionTwo'
-// import ServicesSection from './Components/ServicesSection/ServicesSection'
-// import WhyChooseUs from './Components/WhyChooseUs/WhyChooseUs'
-// import  SolutionSection  from './Components/SolutionSection/SolutionSection'
+// App.jsx
+import React from 'react';
+import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LandingPage from './Pages/LandingPage';
+import AboutUs from './Pages/AboutUs';
+import ContactUs from './Pages/Blog';
+import Blog from './Pages/Blog'; // Import your Blog component
 
 const App = () => {
   return (
-     <Router>
-      <div className="flex flex-col min-h-screen">
+    <Router>
+      <div className="font-lato flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<LandingPage/>} />
-            <Route path="/Home" element={<LandingPage />} />
-            <Route path="/About" element={<AboutUs />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/Home" element={<LandingPage />} /> {/* Capital H */}
+            <Route path="/AboutUs" element={<AboutUs />} /> {/* Capital A/U */}
             <Route path="/Contact" element={<ContactUs />} />
+            <Route path="/Blog" element={<Blog />} /> {/* Add Blog route */}
           </Routes>
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Router>
-    // <div>
-    //   <Navbar />
-    //   {/* <HeroSection />
-    //   <HeroSectionTwo />
-    //   <ServicesSection />
-    //   <WhyChooseUs />
-    //   <SolutionSection /> */}
-    //   {/* ...other components... */}
-    // </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

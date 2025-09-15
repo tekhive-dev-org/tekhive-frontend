@@ -1,9 +1,12 @@
 import React from 'react'
+import HeroSection from './Herosection/HeroSection'
 
-const index = () => {
+const AboutUs = () => {
   return (
-    <div>index</div>
+    <div>
+      <HeroSection/>
+    </div>
   )
 }
 
-export default index
+export default AboutUs
