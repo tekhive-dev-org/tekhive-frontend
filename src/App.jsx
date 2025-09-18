@@ -5,21 +5,22 @@ import Footer from './Components/Footer/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage';
 import AboutUs from './Pages/AboutUs';
-import ContactUs from './Pages/Blog';
-import Blog from './Pages/Blog'; // Import your Blog component
+import Blog from './Pages/Blog'; 
+import ContactUs from './Pages/ContactUs';
 
 const App = () => {
   return (
     <Router>
-      <div className="font-lato flex flex-col min-h-screen">
+      <div className=" flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/Home" element={<LandingPage />} /> {/* Capital H */}
-            <Route path="/AboutUs" element={<AboutUs />} /> {/* Capital A/U */}
-            <Route path="/Contact" element={<ContactUs />} />
-            <Route path="/Blog" element={<Blog />} /> {/* Add Blog route */}
+            <Route path="/Home" element={<LandingPage />} /> 
+            <Route path="/AboutUs" element={<AboutUs />} /> 
+            {/* <Route path="/Contact" element={<ContactUs />} /> */}
+            <Route path="/Blog" element={<Blog />} />
+            <Route path="/Contact" element={<ContactUs />} /> 
           </Routes>
         </main>
         <Footer />
