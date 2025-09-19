@@ -1,5 +1,6 @@
+
+import { Button } from "../../../Components/Button/Button"
 import React, { useState, useEffect, useRef } from 'react'
-import { Button } from '../../../Components/Button/Button'
 import heroIcon from '../../../assets/Images/heroIcon.svg'
 import { Link } from 'react-router-dom'
 import LoadingSpinner from '../../../Components/LoadingSpinner/LoadingSpinner'
@@ -96,4 +97,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection
+export default HeroSection;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Button } from "../../../Components/Button/button"
+import { Button } from "../../../Components/Button/Button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import crmImage from "../../../assets/Images/Icons/crmImage.svg"
 import hrmImage from "../../../assets/Images/Icons/hrmImage.svg"

@@ -10,7 +10,7 @@ const features = [
     title: "Graphic Design",
     description: "We deliver exceptional results that exceed expectations and drive business growth.",
     image: graphicsDesignIcon,
-    
+
   },
   {
     title: "IT Support",
@@ -21,7 +21,7 @@ const features = [
     title: "Digital Marketing",
     description: "Track record of successful implementations across various industries and business sizes.",
     image: digitalMarIcon,
-    
+
   },
 ];
 
@@ -42,24 +42,24 @@ const ServicesSection = () => {
 
         {/* Features list */}
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 mb-2.5">
-                    <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
-                    <Asterisk color='#669C54' className='mr-2' />
-                        <div className=" bg-accent rounded-full flex-shrink-0" />
-                        <span className="text-white text-base font-medium">Technical Assistance in Product Build</span>
-                    </div>
+          <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
+            <Asterisk color='#669C54' className='mr-2' />
+            <div className=" bg-accent rounded-full flex-shrink-0" />
+            <span className="text-white text-base font-medium">Technical Assistance in Product Build</span>
+          </div>
 
-                    <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
-                     <Asterisk color='#669C54' className='mr-2' />
-                        <div className=" bg-accent rounded-full flex-shrink-0" />
-                        <span className="text-white text-base font-medium">Product Visibilty & Management</span>
-                    </div>
+          <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
+            <Asterisk color='#669C54' className='mr-2' />
+            <div className=" bg-accent rounded-full flex-shrink-0" />
+            <span className="text-white text-base font-medium">Product Visibilty & Management</span>
+          </div>
 
-                    <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
-                        <Asterisk color='#669C54' className='mr-2' />
-                        <div className=" bg-accent rounded-full flex-shrink-0" />
-                        <span className="text-white text-base font-medium">Community & Networking.</span>
-                    </div>
-                </div>
+          <div className="flex items-center  w-full sm:w-1/2 lg:w-1/4">
+            <Asterisk color='#669C54' className='mr-2' />
+            <div className=" bg-accent rounded-full flex-shrink-0" />
+            <span className="text-white text-base font-medium">Community & Networking.</span>
+          </div>
+        </div>
 
         <Button className="mt-4 border border-white text-white text-base mb-5">
           For Talent

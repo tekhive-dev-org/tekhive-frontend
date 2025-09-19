@@ -216,33 +216,37 @@ const HeroSection = () => {
             {/* Map Container */}
             <Card className="mt-6">
               <CardContent className="p-0">
-                <div
-                  ref={mapRef}
-                  className="h-64 lg:h-[600px] w-full lg:w-[400px] xl:w-[600px] bg-muted rounded-lg overflow-hidden relative"
-                >
-                  {!isMapVisible ? (
-                    <div className="flex items-center justify-center h-full bg-gray-100">
-                      <p className="text-gray-500">Map will load when visible</p>
-                    </div>
-                  ) : !minTimePassed ? (
-                    <div className="flex items-center justify-center h-full">
-                      <LoadingSpinner size="large" text="Map loading..." />
-                    </div>
-                  ) : (
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7708465394!2d3.3792057!3d6.4281395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1647834567890!5m2!1sen!2sus"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Lagos, Nigeria Location"
-                      className={`transition-opacity duration-500 ${isMapLoaded ? 'opacity-100' : 'opacity-0'}`}
-                      onLoad={() => setIsMapLoaded(true)}
-                    />
-                  )}
-                </div>
+               
+<div
+  ref={mapRef}
+  className="h-64 lg:h-[600px] w-full lg:w-[400px] xl:w-[600px] bg-gray-100 rounded-lg overflow-hidden relative"
+>
+  {!isMapVisible ? (
+    <div className="flex items-center justify-center h-full bg-gray-100">
+      <p className="text-gray-500">Map will load when visible</p>
+    </div>
+  ) : !minTimePassed ? (
+    <div className="flex items-center justify-center h-full">
+      <LoadingSpinner size="large" text="Map loading..." />
+    </div>
+  ) : (
+    <div className="relative w-full h-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7708465394!2d3.3792057!3d6.4281395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1647834567890!5m2!1sen!2sus"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Lagos, Nigeria Location"
+        className={`transition-opacity duration-500 ${isMapLoaded ? 'opacity-100' : 'opacity-0'}`}
+        onLoad={() => setIsMapLoaded(true)}
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+      />
+    </div>
+  )}
+</div>
               </CardContent>
             </Card>
           </div>
