@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite' // Add this import
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  base: '/tekhive-frontend/',  // Place the base option at the top level
   plugins: [
     react(),
-    tailwindcss() // Add this plugin
+    tailwindcss()
   ],
   resolve: {
     alias: {
