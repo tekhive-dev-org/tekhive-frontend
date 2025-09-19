@@ -1,5 +1,6 @@
 import React from "react";
 import { FaPhoneAlt, FaEnvelope, FaGlobe, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -32,14 +33,15 @@ const Footer = () => {
           <div>
             <h4 className=" font-semibold text-[20px] leading-7 tracking-[-0.02em]  text-white mb-4">Useful Links</h4>
            <ul className="font-lato font-normal leading-6 tracking-normal justify-center text-white gap-6 text-[0.5sm">
-                        
-                        <li><a href="/about" className="hover:text-[#a4c7fc] transition">About</a></li>
-                        <li><a href="/blog" className="hover:text-[#a4c7fc] transition">Blog</a></li>
-                        
+                        <Link to="/AboutUs" className="hover:text-[#a4c7fc] transition">About</Link>
+                        <br />
+                        {/* <li><a href="/about" className="hover:text-[#a4c7fc] transition">About</a></li> */}
+                        <Link  className="hover:text-[#a4c7fc] transition">Blog</Link>
+
                     </ul>
           </div>
 
-          {/* Company (Contact Info) */}
+         
           <div>
             <h4 className=" font-semibold text-[20px] leading-7 tracking-[-0.02em]  text-white mb-4">Company</h4>
             <ul className="space-y-3 text-white text-primary-foreground/80">

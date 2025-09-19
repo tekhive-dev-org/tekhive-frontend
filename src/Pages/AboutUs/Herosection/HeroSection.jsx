@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { Button } from '../../../Components/Button/button';
-import aboutusIcon1 from  '../../../assets/Images/Icons/aboutusIcon1.svg';
+import { Button } from '../../../Components/Button/Button';
+
 
 function HeroSection() {
   return (
     <section className="pt-24 pb-12 bg-background"> {/* Changed py-15 to pt-24 pb-12 */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="text-4xl sm:text-3xl lg:text-4xl xl:text-4xl font-medium text-[#1C1C1C]">
             Bringing Your Vision To Life
 With Expertise and Dedication
@@ -20,7 +20,7 @@ With Expertise and Dedication
           <Button size="lg" className=" bg-[#0066FF] hover:bg- font-semibold text-white px-8 py-3 text-sm">Get Started</Button>
         </div>
 
-        <img src={aboutusIcon1} alt="Hero" className="w-full  object-cover" />
+       
       </div>
     </section>
   );

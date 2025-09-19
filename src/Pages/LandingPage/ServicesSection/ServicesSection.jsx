@@ -1,6 +1,6 @@
 import React from "react";
 import { Asterisk } from "lucide-react";
-import { Button } from "../../../Components/Button/button"; // Make sure this path is correct
+import { Button } from "../../../Components/Button/Button"; // Make sure this path is correct
 import graphicsDesignIcon from '../../../assets/Images/graphicsDesignIcon.svg'
 import itSupportIcon from '../../../assets/Images/itSupportIcon.svg'
 import digitalMarIcon from '../../../assets/Images/digitalMarIcon.svg'
