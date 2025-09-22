@@ -8,7 +8,6 @@ import { Textarea } from "../../../Components/Ui/Textarea";
 import { Label } from "../../../Components/Ui/Label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
-import mapicon from '../../../assets/Images/mapicon.svg';
 
 // Validation schema using Yup
 const validationSchema = Yup.object({
@@ -27,8 +26,6 @@ const HeroSection = () => {
   const [isMapVisible, setIsMapVisible] = useState(false);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
   const [minTimePassed, setMinTimePassed] = useState(false);
-  const [apiError, setApiError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
   const mapRef = useRef(null);
 
   // Define initial form values without type annotations
@@ -40,78 +37,25 @@ const HeroSection = () => {
     message: ""
   };
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
-    setApiError(null);
-    setSuccessMessage(null);
 
     try {
-      // Try multiple possible field name formats
-      const apiData = {
-        // Format 1: Basic snake_case
-        first_name: values.firstName,
-        last_name: values.lastName,
-        email: values.email,
-        phone: values.phone,
-        message: values.message,
-        
-        // Format 2: Alternative field names
-        name: `${values.firstName} ${values.lastName}`,
-        inquiry: values.message,
-        
-        // Format 3: Additional metadata
-        subject: "Contact Form Submission",
-        company: "TekHive",
-        source: "Website",
-        timestamp: new Date().toISOString(),
-        
-        // Format 4: Direct field mapping
-        firstname: values.firstName,
-        lastname: values.lastName,
-        phonenumber: values.phone,
-      };
-      
-      const response = await fetch('https://techhive-backend-zmq5.onrender.com/api/contact/form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'User-Agent': 'TekHive-Frontend/1.0'
-        },
-        body: JSON.stringify(apiData),
-        signal: AbortSignal.timeout(15000)
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.error || errorData.message || `Server responded with status ${response.status}`;
-        setApiError(errorMessage);
-        throw new Error(errorMessage);
-      }
-
-      const data = await response.json();
-      setSuccessMessage("Thank you! Your message has been sent successfully. We'll get back to you soon.");
-      setSubmitStatus("success");
-      
+      // Simulate API call
       setTimeout(() => {
-        setSuccessMessage(null);
-      }, 5000);
-      
-      resetForm();
+        console.log("Form submitted:", values);
+        setSubmitStatus("success");
+        resetForm();
+      }, 2000);
     } catch (error) {
-      if (error.name === 'AbortError') {
-        setApiError("Request timed out. Please try again.");
-      } else if (error.message.includes('Failed to fetch')) {
-        setApiError("Network error. Please check your internet connection.");
-      }
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-
+  // Intersection Observer for lazy loading the map
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -133,15 +77,17 @@ const HeroSection = () => {
     };
   }, []);
 
-
+  // Effect to handle minimum loading time
   useEffect(() => {
     if (isMapVisible) {
+      // Reset loading states
       setIsMapLoaded(false);
       setMinTimePassed(false);
 
+      // Set timeout to mark minimum time as passed
       const timer = setTimeout(() => {
         setMinTimePassed(true);
-      }, 1000);
+      }, 1000); // Minimum 1 second loading time
 
       return () => clearTimeout(timer);
     }
@@ -236,22 +182,17 @@ const HeroSection = () => {
                         <ErrorMessage name="message" component="p" className="text-sm text-red-500 " />
                       </div>
 
-                      {/* API Error Message */}
-                      {apiError && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-                          <p className="text-red-500">
-                            {apiError}
-                          </p>
-                          <p className="text-xs text-red-400 mt-1">
-                            Please check all fields are filled correctly.
-                          </p>
+                      {/* Submit Status Messages */}
+                      {submitStatus === "success" && (
+                        <div className="p-4 bg-green-50 border border-green-200 rounded-md">
+                          <p className="text-green-800">Thank you! Your message has been sent successfully.</p>
                         </div>
                       )}
-
-                      {/* Success Message */}
-                      {successMessage && (
-                        <div className="p-4 bg-green-50 border border-green-200 rounded-md">
-                          <p className="text-green-800">{successMessage}</p>
+                      {submitStatus === "error" && (
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+                          <p className="text-red-500">
+                            Sorry, there was an error sending your message. Please try again.
+                          </p>
                         </div>
                       )}
 
@@ -275,37 +216,38 @@ const HeroSection = () => {
             {/* Map Container */}
             <Card className="mt-6">
               <CardContent className="p-0">
-                <div
-                  ref={mapRef}
-                  className="h-64 lg:h-[600px] w-full lg:w-[400px] xl:w-[600px] bg-gray-100 rounded-lg overflow-hidden relative"
-                >
-                  {!isMapVisible ? (
-                    <div className="flex items-center justify-center h-full bg-gray-100">
-                      <p className="text-gray-500">Map will load when visible</p>
-                    </div>
-                  ) : !minTimePassed ? (
-                    <div className="flex items-center justify-center h-full">
-                      <LoadingSpinner size="large" text="Map loading..." />
-                    </div>
-                  ) : (
-                    <div className="relative w-full h-full">
-                      <iframe
-                        id="contact-map"
-                        src={mapicon}
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Lagos, Nigeria Location"
-                        className={`transition-opacity duration-500 ${isMapLoaded ? 'opacity-100' : 'opacity-0'}`}
-                        onLoad={() => setIsMapLoaded(true)}
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                      />
-                    </div>
-                  )}
-                </div>
+               
+<div
+  ref={mapRef}
+  className="h-64 lg:h-[600px] w-full lg:w-[400px] xl:w-[600px] bg-gray-100 rounded-lg overflow-hidden relative"
+>
+  {!isMapVisible ? (
+    <div className="flex items-center justify-center h-full bg-gray-100">
+      <p className="text-gray-500">Map will load when visible</p>
+    </div>
+  ) : !minTimePassed ? (
+    <div className="flex items-center justify-center h-full">
+      <LoadingSpinner size="large" text="Map loading..." />
+    </div>
+  ) : (
+    <div className="relative w-full h-full">
+      <iframe
+      id="contact-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7708465394!2d3.3792057!3d6.4281395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1647834567890!5m2!1sen!2sus"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Lagos, Nigeria Location"
+        className={`transition-opacity duration-500 ${isMapLoaded ? 'opacity-100' : 'opacity-0'}`}
+        onLoad={() => setIsMapLoaded(true)}
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+      />
+    </div>
+  )}
+</div>
               </CardContent>
             </Card>
           </div>
