@@ -47,7 +47,7 @@ const Navbar = () => {
               </Link>
               
               <Link 
-                 
+                to="/Blog" // Added missing 'to' prop
                 className={`${
                   isActive("/Blog") 
                     ? "text-[#0066FF]" 
@@ -62,7 +62,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Button
               className="border-1 border-[#0066FF] hover:bg-[#0066FF] hover:text-white text-[#525866]"
-              onClick={() => window.location.href = '/Contact'}
+              // Removed onClick handler that causes full page reload
               type="button"
             >
               <Link to="/Contact">Contact Us</Link>
@@ -105,6 +105,7 @@ const Navbar = () => {
                 About
               </Link>
               <Link
+                to="/Blog"
                 className={`${
                   isActive("/Blog") 
                     ? "text-[#0066FF]" 

@@ -19,7 +19,6 @@ const App = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/Home" element={<LandingPage />} /> 
             <Route path="/AboutUs" element={<AboutUs />} /> 
-            {/* <Route path="/Contact" element={<ContactUs />} /> */}
             <Route path="/Blog" element={<Blog />} />
             <Route path="/Contact" element={<ContactUs />} /> 
              <Route path="*" element={<NotFoundPage />} />
