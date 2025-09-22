@@ -1,17 +1,56 @@
-import React from 'react';
-import aboutusIcon2 from  '../../../assets/Images/Icons/aboutusIcon2.svg';
+import React, { useState, useRef, useEffect } from 'react';
+import aboutusIcon2 from '../../../assets/Images/Icons/aboutusIcon2.svg';
+import LoadingSpinner from '../../../Components/LoadingSpinner/LoadingSpinner';
 
 const CommitmentSection = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showSpinner, setShowSpinner] = useState(true);
+  const timeoutRef = useRef(null);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+    // Set a timeout to hide the spinner after 300ms
+    timeoutRef.current = setTimeout(() => {
+      setShowSpinner(false);
+    }, 300);
+  };
+
+  const handleError = () => {
+    setIsLoading(false);
+    setShowSpinner(false);
+  };
+
+  // Cleanup timeout on component unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section className="py-10 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-10">
           {/* Image Section - Responsive Image Container */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 relative">
+            {/* Loading spinner overlay */}
+            {showSpinner && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 rounded-lg shadow-lg z-10">
+                <LoadingSpinner size="large" text="Loading..." />
+              </div>
+            )}
+            
+            {/* Image with fade effect */}
             <img 
               src={aboutusIcon2}
               alt="Team Collaboration" 
-              className="rounded-lg shadow-lg w-full h-90 object-cover"
+              className={`rounded-lg shadow-lg w-full h-90 object-cover transition-opacity duration-300 ${
+                showSpinner ? 'opacity-0' : 'opacity-100'
+              }`}
+              onLoad={handleImageLoad}
+              onError={handleError}
             />
           </div>
           

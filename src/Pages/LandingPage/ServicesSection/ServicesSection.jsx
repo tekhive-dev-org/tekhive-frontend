@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Asterisk } from "lucide-react";
 import { Button } from "../../../Components/Button/Button"; // Make sure this path is correct
-import graphicsDesignIcon from '../../../assets/Images/graphicsDesignIcon.svg'
-import itSupportIcon from '../../../assets/Images/itSupportIcon.svg'
-import digitalMarIcon from '../../../assets/Images/digitalMarIcon.svg'
+import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
+import graphicsDesignIcon from '../../../assets/Images/graphicsDesignIcon.svg';
+import itSupportIcon from '../../../assets/Images/itSupportIcon.svg';
+import digitalMarIcon from '../../../assets/Images/digitalMarIcon.svg';
 
 const features = [
   {
     title: "Graphic Design",
     description: "We deliver exceptional results that exceed expectations and drive business growth.",
     image: graphicsDesignIcon,
-
   },
   {
     title: "IT Support",
@@ -21,11 +21,20 @@ const features = [
     title: "Digital Marketing",
     description: "Track record of successful implementations across various industries and business sizes.",
     image: digitalMarIcon,
-
   },
 ];
 
 const ServicesSection = () => {
+  const [loadedImages, setLoadedImages] = useState(features.map(() => false));
+
+  const handleImageLoad = (index) => {
+    setLoadedImages(prev => {
+      const newLoaded = [...prev];
+      newLoaded[index] = true;
+      return newLoaded;
+    });
+  };
+
   return (
     <section className="py-16 lg:py-24 bg-[#0066FF] w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,12 +81,23 @@ const ServicesSection = () => {
               key={index}
               className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
-              <div className="relative">
+              <div className="relative h-48">
+                {/* Loading spinner while image is loading */}
+                {!loadedImages[index] && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                    <LoadingSpinner size="medium" text="Loading..." />
+                  </div>
+                )}
+                
+                {/* Image */}
                 <img
                   src={feature.image}
                   alt={feature.title}
-                  className="w-full h-48  object-cover group-hover:scale-105 transition-transform duration-300"
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
+                  onLoad={() => handleImageLoad(index)}
                 />
+                
+                {/* Stats badge */}
                 <div className="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {feature.stats}
                 </div>

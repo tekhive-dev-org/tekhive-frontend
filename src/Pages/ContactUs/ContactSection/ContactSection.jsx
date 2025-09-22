@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from "../../../Components/Button/Button"
 
 const ContactSection = () => {
   return (
@@ -25,9 +26,9 @@ const ContactSection = () => {
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Chat to support</h2>
             <p className="text-gray-600 mb-4">We're here to help</p>
-            <button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+            <Button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
               Chat to support
-            </button>
+            </Button>
           </div>
 
          
@@ -40,9 +41,9 @@ const ContactSection = () => {
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Visit us</h2>
             <p className="text-gray-600 mb-4">York near office HQ</p>
-            <button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+            <Button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
               Get directions
-            </button>
+            </Button>
           </div>
 
           
@@ -54,9 +55,9 @@ const ContactSection = () => {
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Call us</h2>
             <p className="text-gray-600 mb-4">Mon - Fri from 9am to 5pm</p>
-            <button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+            <Button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
               Call us now
-            </button>
+            </Button>
           </div>
         </div>
       </div>

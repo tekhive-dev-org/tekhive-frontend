@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "../../../Components/Button/Button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner"
 import crmImage from "../../../assets/Images/Icons/crmImage.svg"
 import hrmImage from "../../../assets/Images/Icons/hrmImage.svg"
 
 const SolutionSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024) // lg breakpoint
+  const [loadedImages, setLoadedImages] = useState({})
 
   const solutions = [
     {
@@ -43,6 +45,14 @@ const SolutionSection = () => {
       alt: "BI dashboard",
     },
   ]
+
+  // Handle image loading
+  const handleImageLoad = (id) => {
+    setLoadedImages(prev => ({
+      ...prev,
+      [id]: true
+    }))
+  }
 
   // Handle resize responsiveness
   useEffect(() => {
@@ -105,12 +115,21 @@ const SolutionSection = () => {
               >
                 {group.map((solution) => (
                   <div key={solution.id} className="relative">
-                    {/* Image */}
-                    <div className="overflow-hidden rounded-lg">
+                    {/* Image Container */}
+                    <div className="overflow-hidden rounded-lg relative h-64 md:h-80">
+                      {/* Loading spinner while image is loading */}
+                      {!loadedImages[solution.id] && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                          <LoadingSpinner size="medium" text="Loading..." />
+                        </div>
+                      )}
+                      
+                      {/* Image */}
                       <img
                         src={solution.image}
                         alt={solution.alt}
-                        className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                        className={`w-full h-full object-cover hover:scale-105 transition-transform duration-300 ${loadedImages[solution.id] ? 'opacity-100' : 'opacity-0'}`}
+                        onLoad={() => handleImageLoad(solution.id)}
                       />
                     </div>
                     {/* Text Card */}

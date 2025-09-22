@@ -7,6 +7,7 @@ import LandingPage from './Pages/LandingPage';
 import AboutUs from './Pages/AboutUs';
 import Blog from './Pages/Blog'; 
 import ContactUs from './Pages/ContactUs';
+import NotFoundPage from './Pages/NotFoundPage';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             {/* <Route path="/Contact" element={<ContactUs />} /> */}
             <Route path="/Blog" element={<Blog />} />
             <Route path="/Contact" element={<ContactUs />} /> 
+             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
