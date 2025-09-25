@@ -15,7 +15,7 @@ With Expertise and Dedication
             <span className="">transform operations</span>
           </h2>
           <p className="text-[#525866] text-base sm:text-sm lg:text-base mb-3 mt-4 max-w-2xl mx-auto">
-            Welcome to Tekhive LLC – where Technology meets opportunity! We empower tech professionals with industry-standard skills in design, Product Management, and handoff to break into future world of works. Contact us and start your transformation today!
+            Welcome to Techhive LLC – where Technology meets opportunity! We empower tech professionals with industry-standard skills in design, Product Management, and handoff to break into future world of works. Contact us and start your transformation today!
           </p>
           <Button size="lg" className=" bg-[#0066FF] hover:bg- font-semibold text-white px-8 py-3 text-sm">Get Started</Button>
         </div>

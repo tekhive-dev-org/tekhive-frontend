@@ -15,18 +15,18 @@ export default defineConfig({
     }
   },
    server: {
-     proxy: {
-      '/api': {
-        target: 'https://your-api-endpoint.com',
-        changeOrigin: true,
-        secure: false
-      }
-    // proxy: {
-    //   '/maps': {
-    //     target: 'https://www.google.com',
+    //  proxy: {
+    //   '/api': {
+    //     target: 'https://your-api-endpoint.com',
     //     changeOrigin: true,
-    //     secure: false,
-    //   },
+    //     secure: false
+    //   }
+    proxy: {
+      '/maps': {
+        target: 'https://www.google.com',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 })

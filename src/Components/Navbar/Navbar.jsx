@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "../../Components/Button/Button";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import techhivelogo1 from "../../assets/Images/techhivelogo1.svg"; 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,10 +16,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-gray-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
         
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold text-[#0066FF]">Tech-Hive</Link>
+            <Link to="/" >
+            <img src={techhivelogo1}  alt="techhivelogo" className="mb-[10px] mt-5" />
+            <p className="mt-[-2rem] ml-3 text-sm text-[#4B00F0] mb-5">Techhive LLC</p>
+            </Link>
           </div>
 
           <div className="hidden md:block">
@@ -47,7 +51,7 @@ const Navbar = () => {
               </Link>
               
               <Link 
-                to="/Blog" // Added missing 'to' prop
+                // to="/Blog" // Added missing 'to' prop
                 className={`${
                   isActive("/Blog") 
                     ? "text-[#0066FF]" 

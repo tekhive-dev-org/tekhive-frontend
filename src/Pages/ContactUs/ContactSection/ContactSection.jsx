@@ -26,9 +26,14 @@ const ContactSection = () => {
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Chat to support</h2>
             <p className="text-gray-600 mb-4">We're here to help</p>
-            <Button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+            <a 
+              href="https://wa.me/2347076910684" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 inline-block text-center"
+            >
               Chat to support
-            </Button>
+            </a>
           </div>
 
          
@@ -55,9 +60,12 @@ const ContactSection = () => {
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Call us</h2>
             <p className="text-gray-600 mb-4">Mon - Fri from 9am to 5pm</p>
-            <Button className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+            <a 
+              href="tel:+2347076910684" 
+              className="mt-auto bg-[#0066FF] hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 inline-block text-center"
+            >
               Call us now
-            </Button>
+            </a>
           </div>
         </div>
       </div>

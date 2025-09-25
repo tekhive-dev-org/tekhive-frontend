@@ -35,7 +35,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br  pt-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br  pt-24 lg:pt-10"
     >
       <div className="absolute to-transparent" />
 
@@ -45,10 +45,10 @@ const HeroSection = () => {
           <div className="  space-y-6 text-center lg:text-left">
             <Button className="cursor-pointer w-90% mt-2.5 border-r-2 rounded-2xl text-1xl  border-1 text-[#0066FF] border-[#0066FF]">Welcome to techhive Hub</Button>
             <h1 className=" text-4xl sm:text-5xl lg:text-5xl xl:text-4xl font-medium text-balance text-[#1C1C1C]  ">
-              Build Future-proof Products in  <span className="text-primary">Tekhive</span> With Technology
+             Build With Tech-Hive
             </h1>
             <p className="text-base sm:text-sm lg:text-base text-[#525866]  text-pretty max-w-2xl mx-auto lg:mx-0">
-              Welcome to Techhive hub – where technology meets expectations! We empower aspiring tech professionals with industry-standard skills in website build, Product design & Management. Hire us and start your transformation today!
+              We create websites, design products, and manage projects to bring your ideas to life
             </p>
             <div className="flex flex-col sm:flex-row gap-4 font-normal justify-center lg:justify-start items-center">
               <Button size="lg" className=" bg-[#0066FF]  hover:bg- font-semibold text-white px-8 py-3 text-sm">
@@ -66,7 +66,7 @@ const HeroSection = () => {
 
               <div className="relative border-[#1C1C1C] rounded-2xl overflow-hidden">
 
-                <div className="absolute right-0  top-0 h-full w-1 bg-[#1C1C1C] z-10"></div>
+                <div className="absolute right-0  top-0 h-full w-1  z-10"></div>
 
                 <div className="pr-3 relative">
                   <img
