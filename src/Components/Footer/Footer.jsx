@@ -6,6 +6,7 @@ import techhivelogo1 from "../../assets/Images/techhivelogo1.svg";
 const Footer = () => {
   return (
     <footer className="bg-[#0066FF] text-primary-foreground py-12">
+      <div>hello people</div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand / Intro */}
