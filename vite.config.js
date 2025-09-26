@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite' // Add this import
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  
   plugins: [
     react(),
-    tailwindcss() // Add this plugin
+    tailwindcss()
   ],
   resolve: {
     alias: {
@@ -14,13 +13,9 @@ export default defineConfig({
       '@components/': '/src/components/'
     }
   },
-   server: {
-    //  proxy: {
-    //   '/api': {
-    //     target: 'https://your-api-endpoint.com',
-    //     changeOrigin: true,
-    //     secure: false
-    //   }
+  server: {
+    port: 3000, // Explicit port (change if needed)
+    host: true,  // Allows external access
     proxy: {
       '/maps': {
         target: 'https://www.google.com',
@@ -28,5 +23,13 @@ export default defineConfig({
         secure: false,
       },
     },
+    // Remove invalid options - Vite handles SPA routing automatically
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  }
 })
