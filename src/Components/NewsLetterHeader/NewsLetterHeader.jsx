@@ -1,4 +1,5 @@
 
+
 import { useState } from "react";
 
 const Newsletter = () => {
@@ -10,7 +11,7 @@ const Newsletter = () => {
     if (!email) return setStatus("Please enter a valid email.");
 
     try {
-      const res = await fetch({
+      const res = await fetch("", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
