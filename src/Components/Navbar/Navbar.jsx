@@ -51,7 +51,7 @@ const Navbar = () => {
               </Link>
               
               <Link 
-                // to="/Blog" // Added missing 'to' prop
+                to="/Blog" // Added missing 'to' prop
                 className={`${
                   isActive("/Blog") 
                     ? "text-[#0066FF]" 

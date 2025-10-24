@@ -6,7 +6,7 @@ import Footer from './Components/Footer/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage';
 import AboutUs from './Pages/AboutUs';
-// import Blog from './Pages/Blog'; 
+import Blog from './Pages/Blog'; 
 import ContactUs from './Pages/ContactUs';
 import NotFoundPage from './Pages/NotFoundPage';
 
@@ -34,7 +34,7 @@ const App = () => {
               <Route path="/" element={<LandingPage />} />
               <Route path="/Home" element={<LandingPage />} />
               <Route path="/AboutUs" element={<AboutUs />} />
-              {/* <Route path="/Blog" element={<Blog />} /> */}
+              <Route path="/Blog" element={<Blog />} />
               <Route path="/Contact" element={<ContactUs />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

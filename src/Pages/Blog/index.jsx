@@ -1,10 +1,12 @@
 import React from 'react'
+import { BlogProvider } from '../../context/BlogContext/BlogContext';
+import BlogOne from "./BlogOne/BlogOne"
 
 const Blog = () => {
   return (
-    <div>
-      <h1>Blog Page</h1>
-    </div>
+     <BlogProvider>
+      <BlogOne />
+    </BlogProvider>
   )
 }
 
