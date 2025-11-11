@@ -42,7 +42,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16 lg:pt-24 xl:pt-32 pb-12 lg:pb-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 mobile:pt-24 pt-16 lg:pt-24 xl:pt-32 pb-12 lg:pb-16"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
