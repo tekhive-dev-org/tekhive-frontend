@@ -17,10 +17,24 @@ import SecurityIcon from '@mui/icons-material/Security';
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Static Gradient Background */}
+      {/* Dynamic Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-magenta">
-        {/* Subtle Static Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-secondary/60 to-magenta/40" />
+        {/* Animated Gradient Overlay */}
+        <motion.div
+          animate={{
+            background: [
+              'linear-gradient(45deg, rgba(97, 1, 208, 0.8) 0%, rgba(129, 10, 170, 0.6) 50%, rgba(229, 123, 12, 0.4) 100%)',
+              'linear-gradient(135deg, rgba(129, 10, 170, 0.6) 0%, rgba(97, 1, 208, 0.8) 50%, rgba(229, 123, 12, 0.4) 100%)',
+              'linear-gradient(45deg, rgba(97, 1, 208, 0.8) 0%, rgba(129, 10, 170, 0.6) 50%, rgba(229, 123, 12, 0.4) 100%)'
+            ]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute inset-0"
+        />
       </div>
 
       {/* Geometric Background Pattern */}
@@ -30,38 +44,81 @@ export default function HeroSection() {
         }}></div>
       </div>
 
-      {/* Simplified Floating Elements */}
+      {/* Advanced Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Subtle floating orb */}
+        {/* Floating Orbs */}
         <motion.div
           animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.4, 0.2],
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            opacity: [0.3, 0.7, 0.3],
+            scale: [1, 1.2, 1],
           }}
           transition={{
-            duration: 8,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl"
         />
         <motion.div
           animate={{
-            y: [0, 15, 0],
-            opacity: [0.1, 0.3, 0.1],
+            y: [0, 25, 0],
+            x: [0, -15, 0],
+            opacity: [0.2, 0.6, 0.2],
+            scale: [1, 1.3, 1],
           }}
           transition={{
-            duration: 10,
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-32 right-16 w-40 h-40 bg-magenta/25 rounded-full blur-2xl"
+        />
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 10, 0],
+            opacity: [0.15, 0.5, 0.15],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute bottom-32 right-16 w-40 h-40 bg-magenta/15 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 w-24 h-24 bg-orange-light/40 rounded-full blur-xl"
+        />
+
+        {/* Floating Geometric Shapes */}
+        <motion.div
+          animate={{
+            rotate: [0, 360],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+            y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+          }}
+          className="absolute top-1/4 right-1/4 w-4 h-4 bg-accent/40 rotate-45"
+        />
+        <motion.div
+          animate={{
+            rotate: [0, -360],
+            y: [0, 15, 0],
+          }}
+          transition={{
+            rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+            y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+          }}
+          className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-magenta/30 rounded-full"
         />
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mobile:pt-20 md:pt-24 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[75vh]">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           {/* Hero Content */}
           <div className="text-center lg:text-left space-y-6">
             {/* Premium Badge */}
@@ -209,12 +266,13 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                     whileHover={{ 
-                      scale: 1.02, 
-                      y: -2,
+                      scale: 1.05, 
+                      y: -4,
+                      boxShadow: "0 15px 30px rgba(0,0,0,0.1)"
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-secondary to-magenta text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-secondary to-magenta text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <BusinessCenterIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">Business Setup</h3>
@@ -226,12 +284,13 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
                     whileHover={{ 
-                      scale: 1.02, 
-                      y: -2,
+                      scale: 1.05, 
+                      y: -4,
+                      boxShadow: "0 15px 30px rgba(0,0,0,0.1)"
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-accent to-orange-dark text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-accent to-orange-dark text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <DesignServicesIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">UI/UX Design</h3>
@@ -243,12 +302,13 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.9 }}
                     whileHover={{ 
-                      scale: 1.02, 
-                      y: -2,
+                      scale: 1.05, 
+                      y: -4,
+                      boxShadow: "0 15px 30px rgba(0,0,0,0.1)"
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-purple to-secondary text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-purple to-secondary text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <CodeIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">Development</h3>
@@ -260,12 +320,13 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1.0 }}
                     whileHover={{ 
-                      scale: 1.02, 
-                      y: -2,
+                      scale: 1.05, 
+                      y: -4,
+                      boxShadow: "0 15px 30px rgba(0,0,0,0.1)"
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-magenta to-purple text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-magenta to-purple text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <CampaignIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">Digital Marketing</h3>
@@ -291,26 +352,36 @@ export default function HeroSection() {
                 </motion.div>
               </motion.div>
 
-              {/* Simplified Success Badge */}
+              {/* Floating Success Badge */}
               <motion.div
-                initial={{ scale: 0, rotate: -15 }}
+                initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ 
-                  duration: 0.6, 
+                  duration: 0.8, 
                   delay: 1.5,
                   type: "spring",
-                  stiffness: 100,
+                  stiffness: 200,
                   damping: 10
                 }}
                 className="absolute -top-3 -right-3 bg-gradient-to-r from-accent via-orange-light to-orange-dark text-white px-4 py-2 rounded-xl shadow-xl"
               >
-                <div className="flex items-center gap-2">
+                <motion.div
+                  animate={{
+                    y: [0, -2, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="flex items-center gap-2"
+                >
                   <VerifiedIcon className="h-4 w-4" />
                   <div>
                     <div className="font-bold text-xs">CAC Certified</div>
                     <div className="text-xs opacity-90">Trusted Partner</div>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
 
               {/* Floating Stats */}
