@@ -1,36 +1,57 @@
-import '../styles/globals.css'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
-import Navbar from '../components/layout/Navbar'
-import Footer from '../components/layout/Footer'
+import '../styles/globals.css';
+import Head from 'next/head';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Layout } from '../components/layout';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#0066FF',
+      main: '#000000',
+      dark: '#000001',
+      light: '#1a1a1a',
     },
     secondary: {
-      main: '#525866',
+      main: '#6101d0',
+      dark: '#5900db',
+      light: '#5600e0',
+    },
+    accent: {
+      main: '#e57b0c',
+      dark: '#e5820a',
+      light: '#e3780b',
+    },
+    error: {
+      main: '#810aaa',
+    },
+    warning: {
+      main: '#e57b0c',
+    },
+    success: {
+      main: '#6101d0',
     },
   },
   typography: {
-    fontFamily: 'Lato, Arial, sans-serif',
+    fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
   },
-})
+});
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Layout>
           <Component {...pageProps} />
-        </main>
-        <Footer />
-      </div>
-    </ThemeProvider>
-  )
+        </Layout>
+      </ThemeProvider>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
