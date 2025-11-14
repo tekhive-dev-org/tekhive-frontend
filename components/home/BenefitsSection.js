@@ -11,7 +11,7 @@ export default function BenefitsSection({ benefits }) {
   return (
     <section className="relative py-28 overflow-hidden">
       {/* Static Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-magenta">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-teal-light">
         {/* Static Background Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-primary/90 to-secondary/80" />
       </div>
@@ -39,7 +39,7 @@ export default function BenefitsSection({ benefits }) {
             ease: "easeInOut",
             delay: 3,
           }}
-          className="absolute bottom-20 right-10 w-40 h-40 bg-magenta/15 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/15 rounded-full blur-3xl"
         />
       </div>
 
@@ -69,7 +69,7 @@ export default function BenefitsSection({ benefits }) {
                 className="text-3xl sm:text-5xl font-black mb-6 leading-tight"
               >
                 Everything You Need to{' '}
-                <span className="bg-gradient-to-r from-accent via-orange-light to-orange-dark bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-accent via-teal-light to-teal-lighter bg-clip-text text-transparent">
                   Dominate
                 </span>
               </motion.h2>
@@ -176,7 +176,7 @@ export default function BenefitsSection({ benefits }) {
                         <motion.div
                           whileHover={{ scale: 1.2, rotate: 360 }}
                           transition={{ duration: 0.5 }}
-                          className="w-8 h-8 bg-gradient-to-br from-accent to-orange-dark rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                          className="w-8 h-8 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow duration-300"
                         >
                           <CheckCircleOutlineIcon className="h-5 w-5 text-white" />
                         </motion.div>
@@ -201,7 +201,7 @@ export default function BenefitsSection({ benefits }) {
                     stiffness: 200 
                   }}
                   viewport={{ once: true }}
-                  className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-accent to-orange-dark rounded-full flex items-center justify-center shadow-xl"
+                  className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center shadow-xl"
                 >
                   <StarIcon className="h-8 w-8 text-white" />
                 </motion.div>
@@ -224,7 +224,7 @@ export default function BenefitsSection({ benefits }) {
                 className="absolute -bottom-6 mobile:-bottom-20 -left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-secondary to-magenta rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
                     <AutoAwesomeIcon className="h-6 w-6 text-white" />
                   </div>
                   <div>

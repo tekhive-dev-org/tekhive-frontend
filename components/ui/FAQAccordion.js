@@ -52,10 +52,10 @@ export default function FAQAccordion({ faqs }) {
             aria-controls={`panel${index}-content`}
             id={`panel${index}-header`}
           >
-            <h3 className="text-lg font-semibold text-primary">{faq.question}</h3>
+            <h3 className="text-base font-semibold text-primary">{faq.question}</h3>
           </StyledAccordionSummary>
           <StyledAccordionDetails>
-            <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+            <p className="text-gray-600 mobile:text-sm leading-relaxed">{faq.answer}</p>
           </StyledAccordionDetails>
         </StyledAccordion>
       ))}

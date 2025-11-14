@@ -12,7 +12,7 @@ export default function ServicesSection({ services }) {
       {/* Static Background */}
       <div className="absolute inset-0">
         {/* Base Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-purple/5 to-orange-light/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-teal/5 to-slate/5"></div>
         
         {/* Static subtle Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3" />
@@ -20,7 +20,7 @@ export default function ServicesSection({ services }) {
         {/* Geometric Elements */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236101d0' fill-opacity='0.8'%3E%3Cpath d='M20 20h60v60H20z' fill='none' stroke='%236101d0' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%23e57b0c' stroke-width='1'/%3E%3Cpath d='M35 35l30 30M65 35l-30 30' stroke='%23810aaa' stroke-width='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a4558' fill-opacity='0.8'%3E%3Cpath d='M20 20h60v60H20z' fill='none' stroke='%231a4558' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%233d7f99' stroke-width='1'/%3E%3Cpath d='M35 35l30 30M65 35l-30 30' stroke='%23566e77' stroke-width='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}></div>
         </div>
       </div>

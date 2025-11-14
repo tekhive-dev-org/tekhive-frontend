@@ -8,6 +8,12 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import ShieldIcon from '@mui/icons-material/Shield';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import MessageIcon from '@mui/icons-material/Message';
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -19,6 +25,8 @@ const validationSchema = Yup.object({
   phone: Yup.string()
     .matches(/^[0-9]{10,15}$/, 'Phone number must be 10-15 digits')
     .required('Phone number is required'),
+  serviceInterest: Yup.string()
+    .required('Please select a service'),
   preferredDate: Yup.date()
     .min(new Date(), 'Date must be in the future')
     .required('Preferred date is required'),
@@ -62,15 +70,34 @@ export default function BookSession() {
 
       <main className="pt-20 bg-gray-50">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary to-primary-light py-16 text-white">
-          <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-gradient-to-br from-primary via-secondary to-teal-light py-20 text-white overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <MotionWrapper>
               <div className="text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                  Book a Free Session
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 mb-6"
+                >
+                  <CalendarMonthIcon className="h-5 w-5 mr-2" />
+                  <span className="text-sm font-semibold">BOOK YOUR FREE SESSION</span>
+                </motion.div>
+                
+                <h1 className="text-4xl md:text-6xl font-black mb-6">
+                  Let&apos;s Build Your
+                  <br />
+                  <span className="text-cyan-300">Success Story</span>
                 </h1>
-                <p className="text-xl text-gray-100 max-w-2xl mx-auto">
-                  Let&apos;s discuss your business goals and how we can help you achieve them
+                <p className="text-lg sm:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+                  In one 30-minute call, we&apos;ll audit your idea and deliver actionable steps you can execute tomorrow.
                 </p>
               </div>
             </MotionWrapper>
@@ -92,7 +119,7 @@ export default function BookSession() {
                     <h2 className="text-3xl font-bold text-primary mb-4">
                       Thank You!
                     </h2>
-                    <p className="text-gray-600 text-lg mb-6">
+                    <p className="text-gray-600 text-lg mb-6 mobile:text-sm">
                       Your session request has been received. We&apos;ll get back to you within 24 hours.
                     </p>
                     <p className="text-sm text-gray-500">
@@ -105,6 +132,7 @@ export default function BookSession() {
                       name: '',
                       email: '',
                       phone: '',
+                      serviceInterest: '',
                       preferredDate: '',
                       preferredTime: '',
                       message: '',
@@ -179,6 +207,36 @@ export default function BookSession() {
                           />
                           <ErrorMessage
                             name="phone"
+                            component="div"
+                            className="text-danger text-sm mt-1"
+                          />
+                        </div>
+
+                        {/* Service Interest */}
+                        <div>
+                          <label htmlFor="serviceInterest" className="block text-sm font-semibold text-gray-700 mb-2">
+                            Service of Interest *
+                          </label>
+                          <Field
+                            as="select"
+                            id="serviceInterest"
+                            name="serviceInterest"
+                            className={`w-full px-4 py-3 rounded-lg border ${
+                              touched.serviceInterest && errors.serviceInterest
+                                ? 'border-danger'
+                                : 'border-gray-300'
+                            } focus:outline-none focus:ring-2 focus:ring-accent transition-colors`}
+                          >
+                            <option value="">Select a service</option>
+                            <option value="consultancy">Business Consultancy & Strategy</option>
+                            <option value="design">UI/UX Design & Branding</option>
+                            <option value="development">Web & App Development</option>
+                            <option value="marketing">Digital Marketing & Lead Generation</option>
+                            <option value="multiple">Multiple Services</option>
+                            <option value="not-sure">Not Sure Yet</option>
+                          </Field>
+                          <ErrorMessage
+                            name="serviceInterest"
                             component="div"
                             className="text-danger text-sm mt-1"
                           />
@@ -282,10 +340,16 @@ export default function BookSession() {
                           disabled={isSubmitting}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="w-full bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed mobile:text-sm"
                         >
-                          {isSubmitting ? 'Submitting...' : 'Book My Session'}
+                          {isSubmitting ? 'Submitting...' : 'Book My Free Session →'}
                         </motion.button>
+
+                        {/* Security Note */}
+                        <div className="flex items-center justify-center text-sm text-gray-500 mt-4">
+                          <LockIcon className="h-4 w-4 mr-2" />
+                          <span>Your information is secure and confidential</span>
+                        </div>
                       </Form>
                     )}
                   </Formik>
@@ -293,23 +357,61 @@ export default function BookSession() {
               </div>
             </MotionWrapper>
 
-            {/* Trust Badges */}
+            {/* What to Expect Section */}
             <MotionWrapper delay={0.2}>
+              <div className="mt-16 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12 border border-primary/10">
+                <h2 className="text-xl sm:text-3xl font-bold text-primary mb-8 text-center">
+                  What to Expect in Your Free Session
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="text-center">
+                    <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <span className="text-2xl font-bold text-accent">1</span>
+                    </div>
+                    <h3 className="font-bold text-primary mb-2">Idea Audit</h3>
+                    <p className="text-gray-600 mobile:text-sm">
+                      We&apos;ll review your business idea, validate market fit, and identify opportunities
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <span className="text-2xl font-bold text-accent">2</span>
+                    </div>
+                    <h3 className="font-bold text-primary mb-2">Custom Roadmap</h3>
+                    <p className="text-gray-600 mobile:text-sm">
+                      Receive a 90-day launch blueprint with actionable steps you can execute tomorrow
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <span className="text-2xl font-bold text-accent">3</span>
+                    </div>
+                    <h3 className="font-bold text-primary mb-2">Clear Next Steps</h3>
+                    <p className="text-gray-600 mobile:text-sm">
+                      Walk away with clarity on what to do next and how we can help
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </MotionWrapper>
+
+            {/* Trust Badges */}
+            <MotionWrapper delay={0.3}>
               <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <VerifiedUserIcon className="h-10 w-10 text-accent mx-auto mb-3" />
+                <div className="text-center bg-white rounded-2xl p-6 shadow-md">
+                  <VerifiedUserIcon className="h-12 w-12 text-accent mx-auto mb-3" />
                   <h3 className="font-semibold text-primary mb-1">NDPA 2023 Compliant</h3>
-                  <p className="text-sm text-gray-600">Your data is protected</p>
+                  <p className="text-sm text-gray-600">Your data is protected and secure</p>
                 </div>
-                <div className="text-center">
-                  <LockIcon className="h-10 w-10 text-accent mx-auto mb-3" />
-                  <h3 className="font-semibold text-primary mb-1">Confidential</h3>
-                  <p className="text-sm text-gray-600">All discussions are private</p>
+                <div className="text-center bg-white rounded-2xl p-6 shadow-md">
+                  <LockIcon className="h-12 w-12 text-accent mx-auto mb-3" />
+                  <h3 className="font-semibold text-primary mb-1">100% Confidential</h3>
+                  <p className="text-sm text-gray-600">All discussions remain private with NDAs</p>
                 </div>
-                <div className="text-center">
-                  <ShieldIcon className="h-10 w-10 text-accent mx-auto mb-3" />
-                  <h3 className="font-semibold text-primary mb-1">No Spam</h3>
-                  <p className="text-sm text-gray-600">We respect your inbox</p>
+                <div className="text-center bg-white rounded-2xl p-6 shadow-md">
+                  <ShieldIcon className="h-12 w-12 text-accent mx-auto mb-3" />
+                  <h3 className="font-semibold text-primary mb-1">No Spam Promise</h3>
+                  <p className="text-sm text-gray-600">We respect your inbox and time</p>
                 </div>
               </div>
             </MotionWrapper>

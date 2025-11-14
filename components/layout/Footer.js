@@ -9,7 +9,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+
 
 export default function Footer() {
   const servicesLinks = [
@@ -64,8 +64,8 @@ export default function Footer() {
     {
       Icon: EmailIcon,
       label: 'Email',
-      value: 'hello@techhive.ng',
-      href: 'mailto:hello@techhive.ng'
+      value: 'tekhive.dev@gmail.com',
+      href: 'mailto:tekhive.dev@gmail.com'
     },
     {
       Icon: PhoneIcon,
@@ -76,7 +76,7 @@ export default function Footer() {
     {
       Icon: LocationOnIcon,
       label: 'Location',
-      value: 'Lagos, Nigeria',
+      value: 'Lagos',
       href: '#'
     }
   ];
@@ -190,7 +190,7 @@ export default function Footer() {
               className="text-gray-300 mb-6 mobile:text-sm leading-relaxed max-w-md"
             >
               We handle the details, you lead the hive. Your trusted partner for business launch, 
-              web development, and digital growth in Nigeria. CAC registered and ready to scale your vision.
+              web development, and digital growth. CAC registered and ready to scale your vision.
             </motion.p>
 
             {/* Enhanced Contact Info */}
@@ -398,11 +398,9 @@ export default function Footer() {
               variants={itemVariants}
               className="flex mobile:flex-col items-center gap-2 text-sm text-gray-400"
             >
-              <span>© {new Date().getFullYear()} TechHive</span>
-              <span className="w-1 h-1 bg-accent rounded-full"></span>
-              <span className="flex items-center gap-1">
-                Made with <FavoriteIcon className="h-3 w-3 text-red-400" /> in Nigeria
-              </span>
+              <span>© {new Date().getFullYear()} TechHive. All Rights Reserved</span>
+             
+              
               <span className="w-1 h-1 bg-accent rounded-full"></span>
               <span className="bg-accent/20 px-2 py-1 rounded-full text-accent font-semibold">
                 CAC Registered
