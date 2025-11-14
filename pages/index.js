@@ -23,7 +23,7 @@ export default function Home() {
     {
       icon: <BusinessCenterIcon className="h-12 w-12" />,
       title: 'Business Consultancy',
-      description: 'Strategic guidance for business launch, CAC registration, and compliance with Nigerian business laws.',
+      description: 'Strategic guidance for business launch, CAC registration, and compliance with business laws.',
     },
     {
       icon: <DesignServicesIcon className="h-12 w-12" />,
@@ -59,7 +59,7 @@ export default function Home() {
       quote: 'Professional, reliable, and innovative. TechHive truly handles the details so we can focus on leading our hive.',
       name: 'Ibrahim Musa',
       role: 'Managing Director',
-      company: 'FinServe Nigeria',
+      company: 'FinServe',
     },
   ];
 

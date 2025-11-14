@@ -1,28 +1,29 @@
 /* TechHive Brand Colors and Variables */
 
 :root {
-  /* Primary Brand Colors - Black & Purple */
-  --color-primary: #000000;
-  --color-primary-dark: #000001;
-  --color-primary-light: #000100;
-  --color-primary-lighter: #1a1a1a;
+  /* Primary Brand Colors - Deep Teal */
+  --color-primary: #1a4558;
+  --color-primary-dark: #0f2d3e;
+  --color-primary-light: #2d6b84;
+  --color-primary-lighter: #3d7f99;
   
-  /* Secondary Brand Colors - Purple Spectrum */
-  --color-secondary: #6101d0;
-  --color-secondary-dark: #5900db;
-  --color-secondary-light: #5600e0;
+  /* Secondary Brand Colors - Slate */
+  --color-secondary: #566e77;
+  --color-secondary-dark: #3d505a;
+  --color-secondary-light: #6d8592;
   
-  /* Accent Colors - Orange & Magenta */
-  --color-accent: #e57b0c;
-  --color-accent-dark: #e5820a;
-  --color-accent-light: #e3780b;
-  --color-warning: #e57b0c;
-  --color-danger: #810aaa;
-  --color-success: #6101d0;
-  --color-magenta: #810aaa;
-  --color-purple: #6101d0;
-  --color-violet: #5600e0;
-  --color-orange: #e57b0c;
+  /* Accent Colors - Extended teal/slate palette */
+  --color-accent: #3d7f99;
+  --color-accent-dark: #2d6b84;
+  --color-accent-light: #5a9fb8;
+  --color-warning: #7fa3ae;
+  --color-danger: #4d6872;
+  --color-success: #2d6b84;
+  --color-teal: #1a4558;
+  --color-slate: #566e77;
+  --color-teal-light: #3d7f99;
+  --color-slate-light: #6d8592;
+  --color-info: #5a9fb8;
   
   /* Neutral Colors */
   --color-white: #FFFFFF;

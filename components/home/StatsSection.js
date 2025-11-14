@@ -7,17 +7,17 @@ import SupportIcon from '@mui/icons-material/Support';
 
 export default function StatsSection({ stats }) {
   const enhancedStats = [
-    { value: "50+", label: "Happy Clients", icon: <BusinessIcon className="h-8 w-8" />, gradient: "from-accent to-orange-dark" },
-    { value: "100%", label: "Success Rate", icon: <StarIcon className="h-8 w-8" />, gradient: "from-secondary to-magenta" },
-    { value: "24/7", label: "Expert Support", icon: <SupportIcon className="h-8 w-8" />, gradient: "from-purple to-secondary" },
-    { value: "5+", label: "Years Experience", icon: <CountUpIcon className="h-8 w-8" />, gradient: "from-magenta to-accent" },
+    { value: "50+", label: "Happy Clients", icon: <BusinessIcon className="h-8 w-8" />, gradient: "from-accent to-accent-dark" },
+    { value: "100%", label: "Success Rate", icon: <StarIcon className="h-8 w-8" />, gradient: "from-primary to-secondary" },
+    { value: "24/7", label: "Expert Support", icon: <SupportIcon className="h-8 w-8" />, gradient: "from-teal-light to-secondary" },
+    { value: "5+", label: "Years Experience", icon: <CountUpIcon className="h-8 w-8" />, gradient: "from-secondary to-accent" },
   ];
 
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Static Background */}
       <div className="absolute inset-0 bg-primary/90">
-        <div className="absolute inset-0 bg-gradient-to-br from-magenta/70 via-secondary/80 to-primary/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-light/70 via-secondary/80 to-primary/90" />
       </div>
 
       {/* Minimal floating elements */}
@@ -43,7 +43,7 @@ export default function StatsSection({ stats }) {
             ease: "easeInOut",
             delay: 3,
           }}
-          className="absolute bottom-10 right-10 w-32 h-32 bg-magenta/15 rounded-full blur-2xl"
+          className="absolute bottom-10 right-10 w-32 h-32 bg-secondary/15 rounded-full blur-2xl"
         />
       </div>
 

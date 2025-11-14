@@ -15,7 +15,7 @@ export default function ProcessSection() {
       title: 'Discovery & Consultation',
       description: 'We dive deep into your vision, goals, and challenges to create a tailored strategy',
       icon: <SupportAgentIcon className="h-8 w-8" />,
-      gradient: "from-accent to-orange-dark",
+      gradient: "from-accent to-accent-dark",
       delay: 0.1
     },
     {
@@ -23,7 +23,7 @@ export default function ProcessSection() {
       title: 'Strategic Planning',
       description: 'Comprehensive roadmap with clear milestones, timelines, and deliverables',
       icon: <BusinessCenterIcon className="h-8 w-8" />,
-      gradient: "from-secondary to-magenta",
+      gradient: "from-primary to-secondary",
       delay: 0.2
     },
     {
@@ -31,7 +31,7 @@ export default function ProcessSection() {
       title: 'Expert Execution',
       description: 'Professional implementation with regular updates and quality checkpoints',
       icon: <RocketLaunchIcon className="h-8 w-8" />,
-      gradient: "from-purple to-secondary",
+      gradient: "from-teal-light to-secondary",
       delay: 0.3
     },
     {
@@ -39,7 +39,7 @@ export default function ProcessSection() {
       title: 'Growth & Optimization',
       description: 'Continuous support, monitoring, and scaling to maximize your success',
       icon: <TrendingUpIcon className="h-8 w-8" />,
-      gradient: "from-magenta to-accent",
+      gradient: "from-secondary to-accent",
       delay: 0.4
     },
   ];
@@ -49,7 +49,7 @@ export default function ProcessSection() {
       {/* Static Background with Pattern */}
       <div className="absolute inset-0">
         {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-purple/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-teal/5"></div>
         
         {/* Static subtle gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3" />
@@ -57,7 +57,7 @@ export default function ProcessSection() {
         {/* Geometric pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236101d0' fill-opacity='0.6'%3E%3Cpath d='M60 60l20-20v40l-20-20zm-40 0l20-20v40l-20-20zm20-40l20 20H20l20-20zm0 80l20-20H20l20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a4558' fill-opacity='0.6'%3E%3Cpath d='M60 60l20-20v40l-20-20zm-40 0l20-20v40l-20-20zm20-40l20 20H20l20-20zm0 80l20-20H20l20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}></div>
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function ProcessSection() {
         {/* Process Steps Grid */}
         <div className="relative">
           {/* Connection Line */}
-          <div className="hidden lg:block absolute top-1/2 left-8 right-8 h-0.5 bg-gradient-to-r from-secondary via-accent to-magenta transform -translate-y-1/2 z-0"></div>
+          <div className="hidden lg:block absolute top-1/2 left-8 right-8 h-0.5 bg-gradient-to-r from-primary via-accent to-secondary transform -translate-y-1/2 z-0"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             {processSteps.map((item, index) => (

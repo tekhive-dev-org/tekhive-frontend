@@ -12,7 +12,7 @@ export default function CTASection() {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Static Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-magenta">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-teal-light">
         {/* Static Background Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-primary/80 to-secondary/90" />
       </div>
@@ -40,7 +40,7 @@ export default function CTASection() {
             ease: "easeInOut",
             delay: 3,
           }}
-          className="absolute bottom-20 right-10 w-40 h-40 bg-magenta/15 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/15 rounded-full blur-3xl"
         />
       </div>
 
@@ -69,7 +69,7 @@ export default function CTASection() {
               className="text-3xl sm:text-6xl font-black text-white mb-8 leading-tight"
             >
               Ready to Launch Your{' '}
-              <span className="bg-gradient-to-r from-accent via-orange-light to-orange-dark bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent via-teal-light to-teal-lighter bg-clip-text text-transparent">
                 Business Hive?
               </span>
             </motion.h2>
@@ -124,7 +124,7 @@ export default function CTASection() {
                     boxShadow: "0 25px 50px rgba(229, 123, 12, 0.4)"
                   }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-gradient-to-r from-accent via-orange-light to-orange-dark hover:from-orange-dark hover:to-accent text-white mobile:text-sm px-12 py-5 rounded-full font-bold text-lg shadow-2xl transition-all duration-300 inline-flex items-center gap-3 group"
+                  className="bg-gradient-to-r from-accent via-accent-light to-teal-lighter hover:from-teal-lighter hover:to-accent text-white mobile:text-sm px-12 py-5 rounded-full font-bold text-lg shadow-2xl transition-all duration-300 inline-flex items-center gap-3 group"
                 >
                   <RocketLaunchIcon className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                   Start Your Journey

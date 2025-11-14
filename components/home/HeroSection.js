@@ -17,25 +17,8 @@ import SecurityIcon from '@mui/icons-material/Security';
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Dynamic Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-magenta">
-        {/* Animated Gradient Overlay */}
-        <motion.div
-          animate={{
-            background: [
-              'linear-gradient(45deg, rgba(97, 1, 208, 0.8) 0%, rgba(129, 10, 170, 0.6) 50%, rgba(229, 123, 12, 0.4) 100%)',
-              'linear-gradient(135deg, rgba(129, 10, 170, 0.6) 0%, rgba(97, 1, 208, 0.8) 50%, rgba(229, 123, 12, 0.4) 100%)',
-              'linear-gradient(45deg, rgba(97, 1, 208, 0.8) 0%, rgba(129, 10, 170, 0.6) 50%, rgba(229, 123, 12, 0.4) 100%)'
-            ]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute inset-0"
-        />
-      </div>
+      {/* Static Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-teal-light"></div>
 
       {/* Geometric Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -74,7 +57,7 @@ export default function HeroSection() {
             ease: "easeInOut",
             delay: 1,
           }}
-          className="absolute bottom-32 right-16 w-40 h-40 bg-magenta/25 rounded-full blur-2xl"
+          className="absolute bottom-32 right-16 w-40 h-40 bg-secondary/25 rounded-full blur-2xl"
         />
         <motion.div
           animate={{
@@ -89,7 +72,7 @@ export default function HeroSection() {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute top-1/2 left-1/2 w-24 h-24 bg-orange-light/40 rounded-full blur-xl"
+          className="absolute top-1/2 left-1/2 w-24 h-24 bg-teal-light/40 rounded-full blur-xl"
         />
 
         {/* Floating Geometric Shapes */}
@@ -113,11 +96,11 @@ export default function HeroSection() {
             rotate: { duration: 15, repeat: Infinity, ease: "linear" },
             y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-magenta/30 rounded-full"
+          className="absolute bottom-1/4 left-1/4 w-6 h-6 bg-secondary/30 rounded-full"
         />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mobile:pt-20 md:pt-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mobile:pt-24 md:pt-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           {/* Hero Content */}
           <div className="text-center lg:text-left space-y-6">
@@ -128,7 +111,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8 }}
               className="inline-flex items-center bg-white/15 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-xl"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-accent via-orange-light to-orange-dark rounded-lg flex items-center justify-center mr-3 shadow-lg">
+              <div className="w-8 h-8 bg-gradient-to-br from-accent via-teal-light to-primary-light rounded-lg flex items-center justify-center mr-3 shadow-lg">
                 <RocketLaunchIcon className="h-4 w-4 text-white" />
               </div>
               <div className="text-left mobile:text-center">
@@ -145,14 +128,14 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="space-y-3"
             >
-              <h1 className="text-3xl capitalize sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">
+              <h1 className="text-2xl capitalize sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">
                 We handle the
-                <span className="block mobile:inline-block capitalize mobile:ml-2 bg-gradient-to-r from-accent via-orange-light to-orange-dark bg-clip-text text-transparent">
+                <span className="block mobile:inline-block capitalize mobile:ml-2 text-cyan-300">
                   details,
                 </span>
                 <span className="block">
                   you lead the{' '}
-                  <span className="bg-gradient-to-r from-accent to-orange-light bg-clip-text text-transparent font-black">
+                  <span className="text-cyan-300 font-black">
                     hive.
                   </span>
                 </span>
@@ -164,7 +147,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-sm md:text-xl text-white/90 leading-relaxed max-w-xl lg:max-w-2xl"
               >
-                Your <span className="font-semibold text-accent">complete business ecosystem</span> for launch & growth. 
+                Your <span className="font-semibold text-cyan-300">complete business ecosystem</span> for launch & growth. 
                 From CAC registration to cutting-edge web development.
               </motion.p>
             </motion.div>
@@ -177,15 +160,15 @@ export default function HeroSection() {
               className="flex flex-wrap gap-3 justify-center lg:justify-start"
             >
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                <CheckCircleIcon className="h-4 w-4 text-accent" />
+                <CheckCircleIcon className="h-4 w-4 text-cyan-300" />
                 <span className="text-xs font-medium text-white">Free Consultation</span>
               </div>
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                <SecurityIcon className="h-4 w-4 text-accent" />
+                <SecurityIcon className="h-4 w-4 text-cyan-300" />
                 <span className="text-xs font-medium text-white">CAC Certified</span>
               </div>
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                <TrendingUpIcon className="h-4 w-4 text-accent" />
+                <TrendingUpIcon className="h-4 w-4 text-cyan-300" />
                 <span className="text-xs font-medium text-white">100% Success Rate</span>
               </div>
             </motion.div>
@@ -199,9 +182,9 @@ export default function HeroSection() {
             >
               <Link href="/book-session">
                 <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(229, 123, 12, 0.3)" }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(61, 127, 153, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-gradient-to-r from-accent via-orange-light to-orange-dark hover:from-orange-dark hover:to-accent text-white px-8 py-3 rounded-full font-bold text-base shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className="bg-gradient-to-r from-accent via-accent-light to-teal-lighter hover:from-teal-lighter hover:to-accent text-white px-8 py-3 rounded-full font-bold text-base shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
                   <RocketLaunchIcon className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
                   Start Your Journey
@@ -272,7 +255,7 @@ export default function HeroSection() {
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-secondary to-magenta text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-primary to-secondary text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <BusinessCenterIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">Business Setup</h3>
@@ -290,7 +273,7 @@ export default function HeroSection() {
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-accent to-orange-dark text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-accent to-accent-dark text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <DesignServicesIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">UI/UX Design</h3>
@@ -308,7 +291,7 @@ export default function HeroSection() {
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-purple to-secondary text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-teal-light to-secondary text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <CodeIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">Development</h3>
@@ -326,7 +309,7 @@ export default function HeroSection() {
                     }}
                     className="bg-white rounded-xl p-4 shadow-lg h-full flex flex-col group"
                   >
-                    <div className="bg-gradient-to-br from-magenta to-purple text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="bg-gradient-to-br from-secondary to-teal-light text-white w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       <CampaignIcon className="h-5 w-5" />
                     </div>
                     <h3 className="font-bold text-gray-800 mb-1 text-sm">Digital Marketing</h3>
@@ -363,7 +346,7 @@ export default function HeroSection() {
                   stiffness: 200,
                   damping: 10
                 }}
-                className="absolute -top-3 -right-3 bg-gradient-to-r from-accent via-orange-light to-orange-dark text-white px-4 py-2 rounded-xl shadow-xl"
+                className="absolute -top-3 -right-3 bg-gradient-to-r from-accent via-teal-light to-teal-lighter text-white px-4 py-2 rounded-xl shadow-xl"
               >
                 <motion.div
                   animate={{
@@ -397,7 +380,7 @@ export default function HeroSection() {
                 className="absolute -bottom-3 -left-3 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-white/20"
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-secondary to-magenta rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                     <TrendingUpIcon className="h-4 w-4 text-white" />
                   </div>
                   <div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import StarIcon from '@mui/icons-material/Star';
+import RateReviewIcon from '@mui/icons-material/RateReview';
 
 export default function Testimonials() {
   const testimonials = [
@@ -25,7 +26,7 @@ export default function Testimonials() {
       quote: 'Professional, reliable, and innovative. TechHive truly handles the details so we can focus on leading our hive. Their digital marketing strategies doubled our online visibility.',
       name: 'Ibrahim Musa',
       role: 'Managing Director',
-      company: 'FinServe Nigeria',
+      company: 'FinServe',
       rating: 5,
     },
     {
@@ -57,21 +58,38 @@ export default function Testimonials() {
         <title>Client Testimonials - TechHive</title>
         <meta
           name="description"
-          content="Read what our clients say about TechHive's services. Trusted by businesses across Nigeria for consultancy, design, development, and marketing."
+          content="Read what our clients say about TechHive's services. Trusted by businesses for consultancy, design, development, and marketing."
         />
       </Head>
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary to-primary-light py-20 text-white">
-          <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-gradient-to-br from-primary via-secondary to-teal-light py-24 text-white overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <MotionWrapper>
               <div className="text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 mb-6"
+                >
+                  <RateReviewIcon className="h-5 w-5 mr-2" />
+                  <span className="text-sm font-semibold">CLIENT TESTIMONIALS</span>
+                </motion.div>
+                
+                <h1 className="text-3xl sm:text-6xl font-black mb-6">
                   What Our Clients Say
                 </h1>
-                <p className="text-xl text-gray-100 max-w-3xl mx-auto">
-                  Trusted by businesses across Nigeria to launch and grow successfully
+                <p className="text-lg sm:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+                  Trusted by businesses to launch and grow successfully
                 </p>
               </div>
             </MotionWrapper>
@@ -80,7 +98,7 @@ export default function Testimonials() {
 
         {/* Testimonials Grid */}
         <section className="py-20 bg-gray-50">
-          <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -89,8 +107,8 @@ export default function Testimonials() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  whileHover={{ y: -8, boxShadow: "0 25px 50px rgba(0,0,0,0.15)" }}
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <FormatQuoteIcon className="text-accent text-4xl" />
@@ -102,11 +120,11 @@ export default function Testimonials() {
                   </div>
                   
                   <p className="text-gray-700 leading-relaxed mb-6 italic">
-                    {testimonial.quote}
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   
                   <div className="flex items-center border-t border-gray-100 pt-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg mr-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg mr-4 flex-shrink-0">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
@@ -121,19 +139,19 @@ export default function Testimonials() {
 
             {/* Stats Section */}
             <MotionWrapper delay={0.4}>
-              <div className="mt-20 bg-gradient-to-r from-primary to-accent rounded-2xl p-12 text-white">
+              <div className="mt-20 bg-gradient-to-br from-primary via-secondary to-accent rounded-3xl p-12 text-white shadow-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div>
-                    <div className="text-5xl font-bold mb-2">98%</div>
-                    <p className="text-gray-100">Client Satisfaction</p>
+                    <div className="text-5xl md:text-6xl font-bold mb-2">98%</div>
+                    <p className="text-xl text-gray-100">Client Satisfaction</p>
                   </div>
                   <div>
-                    <div className="text-5xl font-bold mb-2">10+</div>
-                    <p className="text-gray-100">Successful Projects</p>
+                    <div className="text-5xl md:text-6xl font-bold mb-2">50+</div>
+                    <p className="text-xl text-gray-100">Successful Projects</p>
                   </div>
                   <div>
-                    <div className="text-5xl font-bold mb-2">5.0</div>
-                    <p className="text-gray-100">Average Rating</p>
+                    <div className="text-5xl md:text-6xl font-bold mb-2">5.0</div>
+                    <p className="text-xl text-gray-100">Average Rating</p>
                   </div>
                 </div>
               </div>
@@ -143,22 +161,29 @@ export default function Testimonials() {
 
         {/* CTA Section */}
         <section className="bg-white py-20">
-          <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <MotionWrapper>
-              <div className="bg-primary-lighter rounded-2xl p-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-12 text-center border border-gray-100 shadow-xl">
+                <h2 className="text-xl sm:text-4xl font-bold text-primary mb-4">
                   Ready to Join Our Success Stories?
                 </h2>
-                <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg mobile:text-sm text-gray-700 mb-8 max-w-2xl mx-auto">
                   Let&apos;s work together to achieve your business goals
                 </p>
                 <Link href="/book-session">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-accent hover:bg-accent-dark text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-colors duration-200"
+                    className="bg-gradient-to-r from-primary to-accent text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl mobile:text-sm transition-all duration-300 inline-flex items-center"
                   >
                     Book a Free Consultation
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="ml-2"
+                    >
+                      →
+                    </motion.span>
                   </motion.button>
                 </Link>
               </div>

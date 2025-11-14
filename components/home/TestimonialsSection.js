@@ -12,7 +12,7 @@ export default function TestimonialsSection({ testimonials }) {
       {/* Static Background */}
       <div className="absolute inset-0">
         {/* Base Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-purple/5 to-orange-light/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-teal/5 to-slate/5"></div>
         
         {/* Static Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3" />
@@ -20,7 +20,7 @@ export default function TestimonialsSection({ testimonials }) {
         {/* Subtle Pattern Overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236101d0' fill-opacity='0.6'%3E%3Cpath d='M30 30m-28 0a28 28 0 1 1 56 0a28 28 0 1 1 -56 0'/%3E%3Cpath d='M30 6v48M6 30h48'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a4558' fill-opacity='0.6'%3E%3Cpath d='M30 30m-28 0a28 28 0 1 1 56 0a28 28 0 1 1 -56 0'/%3E%3Cpath d='M30 6v48M6 30h48'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}></div>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function TestimonialsSection({ testimonials }) {
               viewport={{ once: true }}
               className="text-xl mobile:text-sm text-gray-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Trusted by innovative businesses across Nigeria to deliver exceptional results. 
+              Trusted by innovative businesses to deliver exceptional results. 
               Here&apos;s what our clients have to say about their transformation journey with us.
             </motion.p>
 

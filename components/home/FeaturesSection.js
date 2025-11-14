@@ -36,7 +36,7 @@ export default function FeaturesSection({ features }) {
       {/* Simplified Background */}
       <div className="absolute inset-0">
         {/* Base Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-purple/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-teal/5"></div>
         
         {/* Static Subtle Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
@@ -44,7 +44,7 @@ export default function FeaturesSection({ features }) {
         {/* Geometric Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236101d0' fill-opacity='0.8'%3E%3Cpath d='M25 25h50v50H25z' fill='none' stroke='%236101d0' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%23e57b0c' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a4558' fill-opacity='0.8'%3E%3Cpath d='M25 25h50v50H25z' fill='none' stroke='%231a4558' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%233d7f99' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")`,
           }}></div>
         </div>
       </div>
@@ -122,7 +122,7 @@ export default function FeaturesSection({ features }) {
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.8 }}
-                    className="bg-gradient-to-br from-secondary to-magenta text-white w-16 h-16 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0 group-hover:shadow-lg transition-shadow duration-300"
+                    className="bg-gradient-to-br from-primary to-secondary text-white w-16 h-16 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0 group-hover:shadow-lg transition-shadow duration-300"
                   >
                     {feature.icon}
                   </motion.div>
@@ -153,7 +153,7 @@ export default function FeaturesSection({ features }) {
                   stiffness: 200 
                 }}
                 viewport={{ once: true }}
-                className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-r from-accent to-orange-dark text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg"
+                className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-r from-accent to-accent-dark text-white rounded-full flex items-center justify-center text-sm font-bold shadow-lg"
               >
                 {index + 1}
               </motion.div>
