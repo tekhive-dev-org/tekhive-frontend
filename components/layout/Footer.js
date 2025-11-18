@@ -190,7 +190,7 @@ export default function Footer() {
               className="text-gray-300 mb-6 mobile:text-sm leading-relaxed max-w-md"
             >
               We handle the details, you lead the hive. Your trusted partner for business launch, 
-              web development, and digital growth. CAC registered and ready to scale your vision.
+              web development, and digital growth.
             </motion.p>
 
             {/* Enhanced Contact Info */}
@@ -357,9 +357,9 @@ export default function Footer() {
                     boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)"
                   }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-accent to-secondary hover:from-secondary hover:to-accent text-white px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 text-sm flex items-center justify-center gap-2 group"
+                  className="w-full bg-gradient-to-r from-accent to-secondary hover:from-secondary hover:to-accent text-white px-1 py-2.5 rounded-lg font-semibold transition-all duration-300 text-[12px] flex items-center justify-center gap-1 "
                 >
-                  Book Session
+                  Book A Free Session
                   <ArrowForwardIcon className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </motion.button>
               </Link>
@@ -401,10 +401,10 @@ export default function Footer() {
               <span>© {new Date().getFullYear()} TechHive. All Rights Reserved</span>
              
               
-              <span className="w-1 h-1 bg-accent rounded-full"></span>
+              {/* <span className="w-1 h-1 bg-accent rounded-full"></span>
               <span className="bg-accent/20 px-2 py-1 rounded-full text-accent font-semibold">
                 CAC Registered
-              </span>
+              </span> */}
             </motion.div>
           </div>
         </motion.div>

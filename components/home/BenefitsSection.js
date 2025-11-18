@@ -221,7 +221,7 @@ export default function BenefitsSection({ benefits }) {
                   stiffness: 150 
                 }}
                 viewport={{ once: true }}
-                className="absolute -bottom-6 mobile:-bottom-20 -left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20"
+                className="absolute -bottom-16 mobile:-bottom-20 -left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
