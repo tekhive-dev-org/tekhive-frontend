@@ -1,12 +1,19 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { MotionWrapper } from '../components/ui';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import StarIcon from '@mui/icons-material/Star';
 import RateReviewIcon from '@mui/icons-material/RateReview';
+import CloseIcon from '@mui/icons-material/Close';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export default function Testimonials() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const testimonials = [
     {
       quote: 'TechHive made our business launch seamless. Their expertise in CAC registration and consultancy was invaluable. The team handled every detail professionally, allowing us to focus on our core business operations.',
@@ -51,6 +58,48 @@ export default function Testimonials() {
       rating: 5,
     },
   ];
+
+  const testimonialImages = [
+    {
+      src: '/assets/Images/testimonials/test1.jpg',
+      alt: 'Client testimonial showcase 1',
+    },
+    {
+      src: '/assets/Images/testimonials/test2.jpg',
+      alt: 'Client testimonial showcase 2',
+    },
+    {
+      src: '/assets/Images/testimonials/test3.jpg',
+      alt: 'Client testimonial showcase 3',
+    },
+  ];
+
+  const openLightbox = (index) => {
+    setCurrentIndex(index);
+    setSelectedImage(testimonialImages[index]);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
+
+  const goToNext = () => {
+    const nextIndex = (currentIndex + 1) % testimonialImages.length;
+    setCurrentIndex(nextIndex);
+    setSelectedImage(testimonialImages[nextIndex]);
+  };
+
+  const goToPrevious = () => {
+    const prevIndex = (currentIndex - 1 + testimonialImages.length) % testimonialImages.length;
+    setCurrentIndex(prevIndex);
+    setSelectedImage(testimonialImages[prevIndex]);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') goToNext();
+    if (e.key === 'ArrowLeft') goToPrevious();
+  };
 
   return (
     <>
@@ -159,8 +208,52 @@ export default function Testimonials() {
           </div>
         </section>
 
+        {/* Image Gallery Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <MotionWrapper>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                  Moments with Our Clients
+                </h2>
+                <p className="text-xl text-gray-600">
+                  Building lasting partnerships and success stories
+                </p>
+              </div>
+            </MotionWrapper>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {testimonialImages.map((image, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  onClick={() => openLightbox(index)}
+                  className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="relative h-80 w-full">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="text-white text-lg font-semibold">Click to view</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="bg-white py-20">
+        <section className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <MotionWrapper>
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-12 text-center border border-gray-100 shadow-xl">
@@ -190,6 +283,80 @@ export default function Testimonials() {
             </MotionWrapper>
           </div>
         </section>
+
+        {/* Lightbox Modal */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeLightbox}
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
+              className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+              style={{ margin: 0 }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-50"
+                aria-label="Close"
+              >
+                <CloseIcon className="h-10 w-10" />
+              </button>
+
+              {/* Previous Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrevious();
+                }}
+                className="absolute left-4 text-white hover:text-gray-300 transition-colors z-50"
+                aria-label="Previous image"
+              >
+                <ChevronLeftIcon className="h-12 w-12" />
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNext();
+                }}
+                className="absolute right-4 text-white hover:text-gray-300 transition-colors z-50"
+                aria-label="Next image"
+              >
+                <ChevronRightIcon className="h-12 w-12" />
+              </button>
+
+              {/* Image Counter */}
+              <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-white text-lg font-semibold z-50">
+                {currentIndex + 1} / {testimonialImages.length}
+              </div>
+
+              {/* Image */}
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    fill
+                    className="object-contain"
+                    sizes="100vw"
+                    priority
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
     </>
   );

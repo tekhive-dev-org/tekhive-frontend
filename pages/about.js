@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { MotionWrapper } from '../components/ui';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -16,40 +17,40 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 export default function About() {
   const teamMembers = [
     {
-      name: 'Somtochukwu Eaton',
-      role: 'Founder & CEO',
+      name: 'Eaton Tochi',
+      role: 'Managinng Director',
       description: 'Vision architect. Turns chaos into 90-day roadmaps.',
-      initials: 'SE',
+      image: '/assets/Images/team/tochi.jpg',
     },
     {
       name: 'Joshua Olanrewaju',
       role: 'HR/Operations',
       description: 'Coordinates business processes',
-      initials: 'JO',
+      image: '/assets/Images/team/joshua.jpg',
     },
     {
       name: 'Nwachukwu Chidiebere',
       role: 'Lead UI/UX Designer',
       description: 'Crafts intuitive, conversion-focused experiences in Figma.',
-      initials: 'NC',
+      image: '/assets/Images/team/chidi.jpg',
     },
     {
       name: 'Victor Okechukwu',
       role: 'Front-End Engineer',
       description: 'Builds pixel-perfect, lightning-fast web apps.',
-      initials: 'VO',
+      image: '/assets/Images/team/victor.jpg',
     },
     {
       name: 'Babasola Oso',
       role: 'Backend Engineer',
       description: 'Scales APIs and databases like clockwork.',
-      initials: 'BO',
+      image: '/assets/Images/team/babasola.jpg',
     },
     {
       name: 'Sharon E. Oche',
-      role: 'Growth Strategist',
+      role: 'Digital Marketer',
       description: 'Turns cold traffic into 20+ qualified leads per month.',
-      initials: 'SO',
+      image: '/assets/Images/team/sharon.jpg',
     },
   ];
 
@@ -93,7 +94,7 @@ export default function About() {
     },
     {
       icon: <VerifiedIcon className="h-10 w-10" />,
-      title: 'CAC Registered',
+      title: 'Registered',
       description: 'Fully compliant with CAMA 2020',
     },
     {
@@ -284,8 +285,14 @@ export default function About() {
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
                 >
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent text-white text-3xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    {member.initials}
+                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-6 shadow-lg relative">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={96}
+                      height={96}
+                      className="object-cover w-full h-full"
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-2 text-center">
                     {member.name}

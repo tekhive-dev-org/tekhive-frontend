@@ -165,7 +165,9 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
                 <SecurityIcon className="h-4 w-4 text-cyan-300" />
-                <span className="text-xs font-medium text-white">CAC Certified</span>
+                <span className="text-xs font-medium text-white">
+                  {/* CAC */}
+                   Certified</span>
               </div>
               <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
                 <TrendingUpIcon className="h-4 w-4 text-cyan-300" />
@@ -361,7 +363,9 @@ export default function HeroSection() {
                 >
                   <VerifiedIcon className="h-4 w-4" />
                   <div>
-                    <div className="font-bold text-xs">CAC Certified</div>
+                    <div className="font-bold text-xs">
+                      {/* CAC  */}
+                      Certified</div>
                     <div className="text-xs opacity-90">Trusted Partner</div>
                   </div>
                 </motion.div>
