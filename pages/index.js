@@ -111,6 +111,18 @@ export default function Home() {
           content="Your easing station for business launch & growth. We provide business consultancy, UI/UX design, web development, and digital marketing services."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="TechHive - We handle the details, you lead the hive" />
+        <meta property="og:description" content="Your easing station for business launch & growth. We provide business consultancy, UI/UX design, web development, and digital marketing services." />
+        <meta property="og:image" content="/assets/logo.png" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="TechHive - We handle the details, you lead the hive" />
+        <meta name="twitter:description" content="Your easing station for business launch & growth. We provide business consultancy, UI/UX design, web development, and digital marketing services." />
+        <meta name="twitter:image" content="/assets/logo.png" />
       </Head>
 
       <main className="overflow-hidden">
