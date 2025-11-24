@@ -22,8 +22,10 @@ export default function Footer() {
   const companyLinks = [
     { name: 'About Us', path: '/about' },
     { name: 'Our Team', path: '/about#team' },
+    { name: 'Projects', path: '/projects' },
     { name: 'Testimonials', path: '/testimonials' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Careers', path: '/careers' },
   ];
 
   const supportLinks = [

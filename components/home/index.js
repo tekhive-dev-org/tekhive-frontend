@@ -4,5 +4,6 @@ export { default as FeaturesSection } from './FeaturesSection';
 export { default as ServicesSection } from './ServicesSection';
 export { default as BenefitsSection } from './BenefitsSection';
 export { default as ProcessSection } from './ProcessSection';
+export { default as FeaturedProjectsSection } from './FeaturedProjectsSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as CTASection } from './CTASection';

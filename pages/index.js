@@ -14,6 +14,7 @@ import {
   ServicesSection,
   BenefitsSection,
   ProcessSection,
+  FeaturedProjectsSection,
   TestimonialsSection,
   CTASection,
 } from '../components/home';
@@ -131,6 +132,7 @@ export default function Home() {
         <FeaturesSection features={features} />
         <ServicesSection services={services} />
         <BenefitsSection benefits={benefits} />
+        <FeaturedProjectsSection />
         <TestimonialsSection testimonials={testimonials} />
         <ProcessSection />
         <CTASection />
