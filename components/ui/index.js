@@ -3,3 +3,4 @@ export { default as ServiceCard } from './ServiceCard';
 export { default as TestimonialCarousel } from './TestimonialCarousel';
 export { default as FAQAccordion } from './FAQAccordion';
 export { default as ServiceModal } from './ServiceModal';
+export { default as ProjectCard } from './ProjectCard';

@@ -5,15 +5,11 @@ import * as Yup from 'yup';
 import { MotionWrapper } from '../components/ui';
 import { motion } from 'framer-motion';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ErrorIcon from '@mui/icons-material/Error';
 import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import ShieldIcon from '@mui/icons-material/Shield';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import PersonIcon from '@mui/icons-material/Person';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import MessageIcon from '@mui/icons-material/Message';
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -42,20 +38,69 @@ const validationSchema = Yup.object({
 
 export default function BookSession() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (values, { setSubmitting, resetForm }) => {
-    // Mock submission - log to console
-    console.log('Form submitted:', values);
-    
-    // Simulate API call
-    setTimeout(() => {
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      setError(null);
+      
+      // Prepare the payload for the backend
+      const payload = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        serviceInterest: values.serviceInterest,
+        preferredDate: values.preferredDate,
+        preferredTime: values.preferredTime,
+        aboutProject: values.message,
+        privacyConsent: values.privacyConsent,
+      };
+
+      // Send to backend API
+      const response = await fetch(
+        'https://techhive-backend-zmq5.onrender.com/api/contact/form',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit form. Please try again.');
+      }
+
+      const data = await response.json();
+      
+      // Destructure and log the response
+      const { success, message, data: responseData, id } = data;
+      
+      console.log('API Response:', {
+        success,
+        message,
+        responseData,
+        id,
+        fullResponse: data,
+      });
+      
       setSubmitted(true);
-      setSubmitting(false);
       resetForm();
       
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
+    } catch (err) {
+      setError(err.message || 'An error occurred. Please try again.');
+      console.error('Form submission error:', err);
+      console.error('Error details:', {
+        message: err.message,
+        stack: err.stack,
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -91,12 +136,12 @@ export default function BookSession() {
                   <span className="text-sm font-semibold">BOOK YOUR FREE SESSION</span>
                 </motion.div>
                 
-                <h1 className="text-4xl md:text-6xl font-black mb-6">
+                <h1 className="text-3xl sm:text-6xl font-black mb-6">
                   Let&apos;s Build Your
                   <br />
                   <span className="text-cyan-300">Success Story</span>
                 </h1>
-                <p className="text-lg sm:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-base sm:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
                   In one 30-minute call, we&apos;ll audit your idea and deliver actionable steps you can execute tomorrow.
                 </p>
               </div>
@@ -106,9 +151,9 @@ export default function BookSession() {
 
         {/* Form Section */}
         <section className="py-16">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto px-2 sm:px-6 lg:px-8">
             <MotionWrapper>
-              <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+              <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-12">
                 {submitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -127,21 +172,39 @@ export default function BookSession() {
                     </p>
                   </motion.div>
                 ) : (
-                  <Formik
-                    initialValues={{
-                      name: '',
-                      email: '',
-                      phone: '',
-                      serviceInterest: '',
-                      preferredDate: '',
-                      preferredTime: '',
-                      message: '',
-                      privacyConsent: false,
-                    }}
-                    validationSchema={validationSchema}
-                    onSubmit={handleSubmit}
-                  >
-                    {({ isSubmitting, touched, errors }) => (
+                  <>
+                    {error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
+                      >
+                        <ErrorIcon className="h-5 w-5 text-danger flex-shrink-0 mt-0.5" />
+                        <div>
+                          <h3 className="font-semibold text-danger mb-1">Submission Failed</h3>
+                          <p className="text-sm text-danger/80">{error}</p>
+                        </div>
+                      </motion.div>
+                    )}
+                    <Formik
+                      initialValues={{
+                        name: '',
+                        email: '',
+                        phone: '',
+                        serviceInterest: '',
+                        preferredDate: '',
+                        preferredTime: '',
+                        message: '',
+                        privacyConsent: false,
+                      }}
+                      validationSchema={validationSchema}
+                      onSubmit={handleSubmit}
+                      validateOnChange={true}
+                      validateOnBlur={true}
+                    >
+                    {({ isSubmitting, touched, errors, values, isValid }) => {
+                      console.log('Form state:', { isSubmitting, isValid, errors, values });
+                      return (
                       <Form className="space-y-6">
                         {/* Name Field */}
                         <div>
@@ -335,15 +398,18 @@ export default function BookSession() {
                         />
 
                         {/* Submit Button */}
-                        <motion.button
-                          type="submit"
-                          disabled={isSubmitting}
+                        <motion.div
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed mobile:text-sm"
                         >
-                          {isSubmitting ? 'Submitting...' : 'Book My Free Session →'}
-                        </motion.button>
+                          <button
+                            type="submit"
+                            disabled={isSubmitting || !isValid}
+                            className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-accent-dark text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed mobile:text-sm"
+                          >
+                            {isSubmitting ? 'Submitting...' : 'Book My Free Session →'}
+                          </button>
+                        </motion.div>
 
                         {/* Security Note */}
                         <div className="flex items-center justify-center text-sm text-gray-500 mt-4">
@@ -351,8 +417,10 @@ export default function BookSession() {
                           <span>Your information is secure and confidential</span>
                         </div>
                       </Form>
-                    )}
+                    );
+                    }}
                   </Formik>
+                  </>
                 )}
               </div>
             </MotionWrapper>

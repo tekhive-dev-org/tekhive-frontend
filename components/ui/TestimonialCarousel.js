@@ -216,7 +216,7 @@ export default function TestimonialCarousel({ testimonials }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="relative z-10 text-gray-700 text-xl md:text-2xl leading-relaxed mb-8 font-medium"
+                className="relative z-10 text-gray-700 text-xl mobile:text-base md:text-2xl leading-relaxed mb-8 font-medium"
               >
                 &ldquo;{testimonials[currentIndex].quote}&rdquo;
               </motion.blockquote>
