@@ -31,5 +31,8 @@ next-env.d.ts
 *.sln
 *.sw?
 
+*# Environment variables
+*.env
+
 # docs
 /docs
