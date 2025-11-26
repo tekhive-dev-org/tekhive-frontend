@@ -265,7 +265,7 @@ Create `.env.local` for local development:
 
 ```env
 # Backend API
-NEXT_PUBLIC_CONTACT_API_URL=https://techhive-backend-zmq5.onrender.com/api/contact/form
+NEXT_PUBLIC_CONTACT_API_URL
 ```
 
 ## 🚀 Deployment
