@@ -28,7 +28,7 @@ const validationSchema = Yup.object({
     .required('Preferred date is required'),
   preferredTime: Yup.string()
     .required('Preferred time is required'),
-  message: Yup.string()
+  aboutProject: Yup.string()
     .min(10, 'Message must be at least 10 characters')
     .required('Message is required'),
   privacyConsent: Yup.boolean()
@@ -44,21 +44,27 @@ export default function BookSession() {
     try {
       setError(null);
       
+      // Convert date from yyyy-mm-dd to mm/dd/yyyy format
+      const dateObj = new Date(values.preferredDate);
+      const formattedDate = `${String(dateObj.getMonth() + 1).padStart(2, '0')}/${String(dateObj.getDate()).padStart(2, '0')}/${dateObj.getFullYear()}`;
+      
       // Prepare the payload for the backend
       const payload = {
         name: values.name,
         email: values.email,
         phone: values.phone,
         serviceInterest: values.serviceInterest,
-        preferredDate: values.preferredDate,
+        preferredDate: formattedDate,
         preferredTime: values.preferredTime,
-        aboutProject: values.message,
+        aboutProject: values.aboutProject,
         privacyConsent: values.privacyConsent,
       };
 
+      console.log('Sending payload to backend:', payload);
+
       // Send to backend API
       const response = await fetch(
-        'https://techhive-backend-zmq5.onrender.com/api/contact/form',
+        process.env.NEXT_PUBLIC_CONTACT_API_URL,
         {
           method: 'POST',
           headers: {
@@ -70,6 +76,7 @@ export default function BookSession() {
 
       if (!response.ok) {
         const errorData = await response.json();
+        console.error('Backend error response:', errorData);
         throw new Error(errorData.message || 'Failed to submit form. Please try again.');
       }
 
@@ -78,13 +85,13 @@ export default function BookSession() {
       // Destructure and log the response
       const { success, message, data: responseData, id } = data;
       
-      console.log('API Response:', {
-        success,
-        message,
-        responseData,
-        id,
-        fullResponse: data,
-      });
+      // console.log('API Response:', {
+      //   success,
+      //   message,
+      //   responseData,
+      //   id,
+      //   fullResponse: data,
+      // });
       
       setSubmitted(true);
       resetForm();
@@ -194,7 +201,7 @@ export default function BookSession() {
                         serviceInterest: '',
                         preferredDate: '',
                         preferredTime: '',
-                        message: '',
+                        aboutProject: '',
                         privacyConsent: false,
                       }}
                       validationSchema={validationSchema}
@@ -203,7 +210,7 @@ export default function BookSession() {
                       validateOnBlur={true}
                     >
                     {({ isSubmitting, touched, errors, values, isValid }) => {
-                      console.log('Form state:', { isSubmitting, isValid, errors, values });
+                      // console.log('Form state:', { isSubmitting, isValid, errors, values });
                       return (
                       <Form className="space-y-6">
                         {/* Name Field */}
@@ -357,23 +364,23 @@ export default function BookSession() {
 
                         {/* Message Field */}
                         <div>
-                          <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                          <label htmlFor="aboutProject" className="block text-sm font-semibold text-gray-700 mb-2">
                             Tell Us About Your Project *
                           </label>
                           <Field
                             as="textarea"
-                            id="message"
-                            name="message"
+                            id="aboutProject"
+                            name="aboutProject"
                             rows="5"
                             className={`w-full px-4 py-3 rounded-lg border ${
-                              touched.message && errors.message
+                              touched.aboutProject && errors.aboutProject
                                 ? 'border-danger'
                                 : 'border-gray-300'
                             } focus:outline-none focus:ring-2 focus:ring-accent transition-colors resize-none`}
                             placeholder="Share details about your business goals, challenges, or specific services you're interested in..."
                           />
                           <ErrorMessage
-                            name="message"
+                            name="aboutProject"
                             component="div"
                             className="text-danger text-sm mt-1"
                           />
