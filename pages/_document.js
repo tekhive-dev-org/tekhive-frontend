@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <meta name="google-site-verification" content="K1mIvETO_JS9TkrwEK7w3A8tpFLmYhI8p9nyZF9zdDs" />
         {/* Favicon */}
         <link rel="icon" href="/assets/logo.png" />
         <link rel="apple-touch-icon" href="/assets/logo.png" />

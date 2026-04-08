@@ -46,12 +46,12 @@ export default function About() {
       description: 'Scales APIs and databases like clockwork.',
       image: '/assets/Images/team/babasola.jpg',
     },
-    {
-      name: 'Sharon E. Oche',
-      role: 'Digital Marketer',
-      description: 'Turns cold traffic into 20+ qualified leads per month.',
-      image: '/assets/Images/team/sharon.jpg',
-    },
+    // {
+    //   name: 'Sharon E. Oche',
+    //   role: 'Digital Marketer',
+    //   description: 'Turns cold traffic into 20+ qualified leads per month.',
+    //   image: '/assets/Images/team/sharon.jpg',
+    // },
   ];
 
   const principles = [
